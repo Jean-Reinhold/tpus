@@ -1,0 +1,86 @@
+<!-- ======================================================================
+     SLIDE 14 — TOPOLOGIA (malha × toro, com exemplo de saltos)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Escala</div>
+    <h2 class="heading" data-asset="heading">Do chip ao pod: a conexão em <span class="em">toro</span></h2>
+    <div class="body">
+    <svg class="diagram" data-asset="diagram" width="1136" height="434" viewBox="0 0 1136 434">
+      <text class="d-label" x="568" y="14" text-anchor="middle">Cada bolinha é um chip TPU; cada linha, um enlace ICI (ligação direta de chip a chip).</text>
+
+      <!-- ===================== painel esquerdo: malha ===================== -->
+      <text x="245" y="44" text-anchor="middle" style="font-weight:600;">Malha 2D</text>
+      <!-- arestas -->
+      <g stroke="#54677D" stroke-width="1.5">
+        <line x1="120" y1="90"  x2="330" y2="90"/><line x1="120" y1="160" x2="330" y2="160"/>
+        <line x1="120" y1="230" x2="330" y2="230"/><line x1="120" y1="300" x2="330" y2="300"/>
+        <line x1="120" y1="90"  x2="120" y2="300"/><line x1="190" y1="90"  x2="190" y2="300"/>
+        <line x1="260" y1="90"  x2="260" y2="300"/><line x1="330" y1="90"  x2="330" y2="300"/>
+      </g>
+      <!-- caminho de exemplo: canto a canto, 6 saltos -->
+      <polyline points="120,90 330,90 330,300" fill="none" stroke="#E58E1A" stroke-width="3.5" opacity=".85"/>
+      <!-- nós -->
+      <g fill="#ffffff" stroke="#14202E" stroke-width="1.5">
+        <circle cx="120" cy="90" r="10"/><circle cx="190" cy="90" r="10"/><circle cx="260" cy="90" r="10"/><circle cx="330" cy="90" r="10"/>
+        <circle cx="120" cy="160" r="10"/><circle cx="190" cy="160" r="10"/><circle cx="260" cy="160" r="10"/><circle cx="330" cy="160" r="10"/>
+        <circle cx="120" cy="230" r="10"/><circle cx="190" cy="230" r="10"/><circle cx="260" cy="230" r="10"/><circle cx="330" cy="230" r="10"/>
+        <circle cx="120" cy="300" r="10"/><circle cx="190" cy="300" r="10"/><circle cx="260" cy="300" r="10"/><circle cx="330" cy="300" r="10"/>
+      </g>
+      <circle cx="120" cy="90" r="15" fill="none" stroke="#E58E1A" stroke-width="2.5"/>
+      <circle cx="330" cy="300" r="15" fill="none" stroke="#E58E1A" stroke-width="2.5"/>
+      <text x="96" y="78" style="font-weight:600; font-size:14px;">A</text>
+      <text x="346" y="322" style="font-weight:600; font-size:14px;">B</text>
+      <text class="d-label" x="245" y="352" text-anchor="middle">do chip A ao chip B: <tspan style="font-weight:600;">6 saltos</tspan></text>
+      <text class="d-label" x="245" y="372" text-anchor="middle">a mensagem pula de vizinho em vizinho, e cada salto custa tempo</text>
+
+      <!-- ===================== painel direito: toro ===================== -->
+      <text x="765" y="44" text-anchor="middle" style="font-weight:600;">Toro 2D = malha + retorno nas bordas</text>
+      <!-- stubs de wraparound (o enlace continua do outro lado) -->
+      <g stroke="#B5DCF1" stroke-width="2.5" stroke-dasharray="4 5">
+        <line x1="660" y1="160" x2="622" y2="160"/><line x1="870" y1="160" x2="908" y2="160"/>
+        <line x1="660" y1="230" x2="622" y2="230"/><line x1="870" y1="230" x2="908" y2="230"/>
+        <line x1="660" y1="300" x2="622" y2="300"/><line x1="870" y1="300" x2="908" y2="300"/>
+        <line x1="660" y1="90" x2="660" y2="70"/><line x1="660" y1="300" x2="660" y2="320"/>
+        <line x1="730" y1="90" x2="730" y2="70"/><line x1="730" y1="300" x2="730" y2="320"/>
+        <line x1="800" y1="90" x2="800" y2="70"/><line x1="800" y1="300" x2="800" y2="320"/>
+      </g>
+      <!-- arestas -->
+      <g stroke="#54677D" stroke-width="1.5">
+        <line x1="660" y1="90"  x2="870" y2="90"/><line x1="660" y1="160" x2="870" y2="160"/>
+        <line x1="660" y1="230" x2="870" y2="230"/><line x1="660" y1="300" x2="870" y2="300"/>
+        <line x1="660" y1="90"  x2="660" y2="300"/><line x1="730" y1="90"  x2="730" y2="300"/>
+        <line x1="800" y1="90"  x2="800" y2="300"/><line x1="870" y1="90"  x2="870" y2="300"/>
+      </g>
+      <!-- caminho de exemplo no toro: 2 saltos pelas voltas -->
+      <path d="M660 90 C 692 44, 838 44, 870 90" fill="none" stroke="#E58E1A" stroke-width="3" opacity=".9"/>
+      <g stroke="#E58E1A" stroke-width="3" stroke-dasharray="4 5" opacity=".9">
+        <line x1="870" y1="90" x2="870" y2="64"/>
+        <line x1="870" y1="300" x2="870" y2="326"/>
+      </g>
+      <!-- nós -->
+      <g fill="#00408F">
+        <circle cx="660" cy="90" r="10"/><circle cx="730" cy="90" r="10"/><circle cx="800" cy="90" r="10"/><circle cx="870" cy="90" r="10"/>
+        <circle cx="660" cy="160" r="10"/><circle cx="730" cy="160" r="10"/><circle cx="800" cy="160" r="10"/><circle cx="870" cy="160" r="10"/>
+        <circle cx="660" cy="230" r="10"/><circle cx="730" cy="230" r="10"/><circle cx="800" cy="230" r="10"/><circle cx="870" cy="230" r="10"/>
+        <circle cx="660" cy="300" r="10"/><circle cx="730" cy="300" r="10"/><circle cx="800" cy="300" r="10"/><circle cx="870" cy="300" r="10"/>
+      </g>
+      <circle cx="660" cy="90" r="15" fill="none" stroke="#E58E1A" stroke-width="2.5"/>
+      <circle cx="870" cy="300" r="15" fill="none" stroke="#E58E1A" stroke-width="2.5"/>
+      <text x="636" y="78" style="font-weight:600; font-size:14px;">A</text>
+      <text x="890" y="322" style="font-weight:600; font-size:14px;">B</text>
+      <text class="d-label" x="765" y="352" text-anchor="middle">o mesmo caminho leva <tspan style="font-weight:600;">2 saltos</tspan>: a volta da linha e a volta da coluna</text>
+      <text class="d-label" x="765" y="372" text-anchor="middle">tracejado: o enlace sai por uma borda e continua na borda oposta</text>
+
+      <!-- escala real e ligação com a disciplina -->
+      <text class="d-label" x="568" y="404" text-anchor="middle">Pod: conjunto de chips ligados pelo ICI (90 GB/s por eixo na v5p). v5e/v6e: toro 2D 16×16, 256 chips; v4/v5p: toro 3D, até 8.960 chips.</text>
+      <text class="d-label" x="568" y="426" text-anchor="middle" style="font-weight:600;">São as mesmas topologias de redes de interconexão da disciplina: malha, toro, hipercubo.</text>
+    </svg>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Arquitetura de TPUs</span>
+    <span class="f-page"><b>15</b> / 18</span>
+  </div>
+</section>

@@ -110,7 +110,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>2</b> / 17</span>
+    <span class="f-page"><b>2</b> / 18</span>
   </div>
 </section>
 
@@ -138,7 +138,7 @@
   <div class="footer" style="color:rgba(255,255,255,.55);">
     <img src="assets/ufpel-marca-white.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>3</b> / 17</span>
+    <span class="f-page"><b>3</b> / 18</span>
   </div>
 </section>
 
@@ -167,7 +167,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>4</b> / 17</span>
+    <span class="f-page"><b>4</b> / 18</span>
   </div>
 </section>
 
@@ -233,7 +233,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>5</b> / 17</span>
+    <span class="f-page"><b>5</b> / 18</span>
   </div>
 </section>
 
@@ -266,7 +266,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>6</b> / 17</span>
+    <span class="f-page"><b>6</b> / 18</span>
   </div>
 </section>
 
@@ -294,7 +294,7 @@
   <div class="footer" style="color:rgba(255,255,255,.55);">
     <img src="assets/ufpel-marca-white.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>7</b> / 17</span>
+    <span class="f-page"><b>7</b> / 18</span>
   </div>
 </section>
 
@@ -367,7 +367,60 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>8</b> / 17</span>
+    <span class="f-page"><b>8</b> / 18</span>
+  </div>
+</section>
+
+<!-- ======================================================================
+     SLIDE 9 — A MATEMÁTICA: MULTIPLICAÇÃO DE MATRIZES E ReLU
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Por dentro do chip</div>
+    <h2 class="heading" data-asset="heading">A conta que o array sistólico <span class="em">resolve</span></h2>
+    <div class="body">
+    <div class="cols">
+      <figure class="chart" data-asset="chart-matmul">
+        <canvas data-chart width="520" height="330"></canvas>
+        <script type="application/json">
+        {
+          "type": "line",
+          "data": {
+            "labels": ["64", "128", "256", "512", "1024", "2048"],
+            "datasets": [
+              { "label": "Operações MAC (milhões)", "data": [0.262, 2.097, 16.777, 134.218, 1073.742, 8589.935] }
+            ]
+          },
+          "options": {
+            "scales": { "y": { "type": "logarithmic" } }
+          }
+        }
+        </script>
+        <figcaption>Multiplicação de matrizes N×N: as MACs crescem O(N³) — escala log. Cada núcleo do array sistólico faz uma dessas somas por ciclo.</figcaption>
+      </figure>
+      <figure class="chart" data-asset="chart-relu">
+        <canvas data-chart width="520" height="330"></canvas>
+        <script type="application/json">
+        {
+          "type": "line",
+          "data": {
+            "labels": ["-4", "-3.5", "-3", "-2.5", "-2", "-1.5", "-1", "-0.5", "0", "0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4"],
+            "datasets": [
+              { "label": "ReLU(x) = max(0, x)", "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4] }
+            ]
+          }
+        }
+        </script>
+        <figcaption>ReLU: a não linearidade aplicada após cada Y = W·X + b, célula a célula, na unidade de ativação.</figcaption>
+      </figure>
+    </div>
+    <p class="lead" data-asset="bridge" style="margin-top:24px;">Cada saída do array sistólico (slide seguinte) é exatamente uma dessas somas MAC — pronta para passar pela ReLU antes da próxima camada.</p>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Arquitetura de TPUs</span>
+    <span class="f-page"><b>9</b> / 18</span>
   </div>
 </section>
 
@@ -456,7 +509,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>9</b> / 17</span>
+    <span class="f-page"><b>10</b> / 18</span>
   </div>
 </section>
 
@@ -493,7 +546,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>10</b> / 17</span>
+    <span class="f-page"><b>11</b> / 18</span>
   </div>
 </section>
 
@@ -521,7 +574,7 @@
   <div class="footer" style="color:rgba(255,255,255,.55);">
     <img src="assets/ufpel-marca-white.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>11</b> / 17</span>
+    <span class="f-page"><b>12</b> / 18</span>
   </div>
 </section>
 
@@ -588,7 +641,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>12</b> / 17</span>
+    <span class="f-page"><b>13</b> / 18</span>
   </div>
 </section>
 
@@ -654,7 +707,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>13</b> / 17</span>
+    <span class="f-page"><b>14</b> / 18</span>
   </div>
 </section>
 
@@ -741,7 +794,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>14</b> / 17</span>
+    <span class="f-page"><b>15</b> / 18</span>
   </div>
 </section>
 
@@ -790,7 +843,7 @@
   <div class="footer" style="color:rgba(255,255,255,.55);">
     <img src="assets/ufpel-marca-white.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>15</b> / 17</span>
+    <span class="f-page"><b>16</b> / 18</span>
   </div>
 </section>
 
@@ -820,7 +873,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>16</b> / 17</span>
+    <span class="f-page"><b>17</b> / 18</span>
   </div>
 </section>
 
