@@ -1,0 +1,251 @@
+/* ==========================================================================
+   UFPel document template — A4 pages (210mm × 297mm)
+   Brand foundation: ../../RULES.md   Layout rules: ./RULES.md
+   Pages are authored explicitly (no auto-flow) — the render loop's overflow
+   detection tells you when content must move to the next page.
+   ========================================================================== */
+
+/* Montserrat variable font — one file covers weights 100–900 */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../../static/fonts/Montserrat[wght].ttf') format('truetype-variations');
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../../static/fonts/Montserrat-Italic[wght].ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+:root {
+  --ufpel-blue: #00408F;
+  --ufpel-navy: #002A5C;
+  --ufpel-ink: #14202E;
+  --ufpel-muted: #54677D;
+  --ufpel-sky: #B5DCF1;
+  --ufpel-pale: #EAF4FB;
+  --ufpel-white: #FFFFFF;
+  --success: #0A9B76; --success-bg: #E6F5F0;
+  --warning: #E58E1A; --warning-bg: #FFF4E3;
+  --danger:  #D64545; --danger-bg:  #FBECEC;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #3A3D46; font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; }
+
+.page {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--ufpel-white); color: var(--ufpel-ink);
+  margin: 24px auto;
+  font-size: 10.5pt; line-height: 1.6;
+}
+.page.dark { background: var(--ufpel-navy); color: var(--ufpel-white); }
+
+@media print { body { background: none; } .page { margin: 0; page-break-after: always; } }
+@page { size: A4; margin: 0; }
+
+/* ---- ufpel-gradient (covers only) --------------------------------------------- */
+/* STRICTLY UFPel blue family (PMS 287) — no violet, magenta, warm hues. Portrait-tuned. */
+.ufpel-gradient {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(80% 45% at 92% 103%, rgba(99, 158, 224, .36) 0%, transparent 52%),
+    radial-gradient(130% 70% at 35% 106%, rgba(0, 64, 143, .90) 0%, transparent 64%),
+    radial-gradient(90% 50% at 108% 30%, rgba(0, 64, 143, .30) 0%, transparent 55%),
+    linear-gradient(180deg, #001630 0%, #001F45 55%, #002A5C 100%);
+}
+.hero-img { position: absolute; inset: 0; z-index: 0; object-fit: cover; width: 100%; height: 100%; object-position: 30% center; }
+.hero-veil {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.3) 55%, rgba(0,0,0,0) 100%);
+}
+
+/* ---- page chrome ------------------------------------------------------- */
+.body-content { position: relative; z-index: 5; padding: 24mm 20mm 26mm; height: 100%; }
+.pg-header {
+  position: absolute; top: 10mm; left: 20mm; right: 20mm; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 8.5pt; color: var(--ufpel-muted);
+  border-bottom: 0.6pt solid #E3E5F0; padding-bottom: 3mm;
+}
+.pg-header img { height: 6mm; }
+.pg-footer {
+  position: absolute; bottom: 10mm; left: 20mm; right: 20mm; z-index: 40;
+  display: flex; align-items: center; font-size: 8.5pt; color: var(--ufpel-muted);
+}
+.pg-footer .f-tick { width: 2.2pt; height: 3.6mm; background: var(--ufpel-blue); margin-right: 3mm; }
+.pg-footer .f-title { flex: 1; text-align: center; }
+.pg-footer .f-page b { color: var(--ufpel-ink); font-weight: 600; }
+
+/* quiet flow-line anchor on light pages (top-right, under the header rule) */
+.page:not(.dark)::after {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 300px; height: 110px; z-index: 1; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='110' viewBox='0 0 300 110' fill='none'%3E%3Cpath d='M300 22 C230 22 210 58 140 58 L0 58' stroke='%23B5DCF1' stroke-opacity='.30' stroke-width='1'/%3E%3Ccircle cx='140' cy='58' r='2.6' fill='%23B5DCF1' fill-opacity='.45'/%3E%3C/svg%3E") no-repeat;
+}
+.page.no-anchor::after { display: none; }
+
+/* ---- typography --------------------------------------------------------- */
+.kicker {
+  font-size: 9pt; font-weight: 500; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--ufpel-muted); margin-bottom: 3mm;
+}
+.page.dark .kicker { color: var(--ufpel-sky); }
+h1.doc-title { font-size: 34pt; font-weight: 700; line-height: 1.12; letter-spacing: -0.015em; }
+h2.section {
+  font-size: 17pt; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em;
+  margin: 0 0 4mm; display: flex; align-items: baseline; gap: 4mm;
+}
+h2.section .sec-num { color: var(--ufpel-blue); font-weight: 700; }
+h3.sub { font-size: 12.5pt; font-weight: 600; margin: 6mm 0 2.5mm; }
+.em { color: var(--ufpel-blue); }
+.page.dark .em { color: var(--ufpel-sky); } /* deep blue vanishes on navy — use sky on dark */
+p { margin-bottom: 3.5mm; max-width: 170mm; }
+p.lead { font-size: 12pt; line-height: 1.65; color: var(--ufpel-muted); }
+.page.dark p.lead { color: rgba(255,255,255,.82); }
+
+/* ---- contents ------------------------------------------------------------ */
+.toc { margin-top: 8mm; }
+.toc-item {
+  display: flex; align-items: baseline; gap: 4mm;
+  font-size: 12pt; font-weight: 600; padding: 4mm 0;
+  border-bottom: 0.6pt solid #E3E5F0;
+}
+.toc-item .t-num { color: var(--ufpel-blue); font-weight: 700; min-width: 8mm; }
+.toc-item .t-dots { flex: 1; }
+.toc-item .t-page { color: var(--ufpel-muted); font-weight: 500; }
+.toc-item .t-sub { font-size: 9.5pt; font-weight: 400; color: var(--ufpel-muted); margin-top: 1mm; }
+
+/* ---- components (doc-scaled versions of the shared inventory) ------------ */
+.stats { display: flex; gap: 8mm; margin: 6mm 0; }
+.stat { flex: 1; text-align: center; }
+.stat .s-label { font-size: 10pt; font-weight: 600; margin-bottom: 1mm; }
+.stat .s-value { font-size: 26pt; font-weight: 700; color: var(--ufpel-blue); line-height: 1.1; letter-spacing: -0.02em; }
+.stat .s-note { font-size: 8.5pt; color: var(--ufpel-muted); line-height: 1.45; margin-top: 1.5mm; }
+
+.card-insight {
+  background: var(--ufpel-navy); color: #fff;
+  border-radius: 6mm; padding: 7mm 9mm; margin: 6mm 0;
+  font-size: 11pt; line-height: 1.6;
+}
+.card-insight .c-kicker {
+  font-size: 8pt; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--ufpel-sky); font-weight: 500; margin-bottom: 2mm;
+}
+
+.callout {
+  border-radius: 3mm; padding: 4mm 6mm; font-size: 10pt; line-height: 1.55;
+  background: var(--ufpel-pale); border-left: 1mm solid var(--ufpel-blue); margin: 5mm 0;
+}
+.callout.success { background: var(--success-bg); border-color: var(--success); }
+.callout.warning { background: var(--warning-bg); border-color: var(--warning); }
+.callout.danger  { background: var(--danger-bg);  border-color: var(--danger); }
+.callout b { font-weight: 600; }
+
+ul.bullets { list-style: none; margin: 3mm 0 5mm; }
+ul.bullets li { padding-left: 6mm; position: relative; margin-bottom: 2.5mm; }
+ul.bullets li::before {
+  content: ''; position: absolute; left: 1mm; top: 2.4mm;
+  width: 2.2mm; height: 2.2mm; border-radius: 50%; background: var(--ufpel-blue);
+}
+
+.definition {
+  border: 0.7pt solid var(--ufpel-ink); border-radius: 3mm;
+  padding: 4mm 6mm; margin: 5mm 0; font-size: 10pt;
+  background: #FAFBFF;
+}
+.definition .d-term { font-weight: 700; }
+
+/* ---- table ----------------------------------------------------------------- */
+.table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 9.5pt; margin: 5mm 0; }
+.table th {
+  background: var(--ufpel-navy); color: #fff; font-weight: 600;
+  text-align: left; padding: 3mm 4mm; font-size: 9pt;
+}
+.table th:first-child { border-top-left-radius: 2.5mm; }
+.table th:last-child { border-top-right-radius: 2.5mm; }
+.table td { padding: 2.8mm 4mm; border-bottom: 0.6pt solid #E7E9F4; }
+.table tbody tr:nth-child(even) td { background: #F7F8FF; }
+.table td.num, .table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.table .stat-cell { color: var(--ufpel-blue); font-weight: 600; }
+
+/* ---- steps (vertical for documents) ------------------------------------------ */
+.steps-v { margin: 5mm 0; }
+.step-v { display: flex; gap: 5mm; margin-bottom: 5mm; }
+.step-v .sv-num {
+  width: 11mm; height: 11mm; border-radius: 3.2mm; flex: none;
+  background: var(--ufpel-sky); color: var(--ufpel-ink);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12pt; font-weight: 700;
+}
+.step-v .sv-name { font-size: 11pt; font-weight: 600; color: var(--ufpel-blue); }
+.step-v .sv-text { font-size: 9.5pt; color: var(--ufpel-muted); line-height: 1.5; margin-top: 0.5mm; }
+
+/* ---- timeline ------------------------------------------------------------------ */
+.timeline { position: relative; padding-left: 9mm; margin: 5mm 0; }
+.timeline::before { content: ''; position: absolute; left: 2mm; top: 2mm; bottom: 2mm; width: 0.6mm; background: #E7E9F4; }
+.timeline .t-item { position: relative; padding-bottom: 5mm; }
+.timeline .t-item::before {
+  content: ''; position: absolute; left: -8.4mm; top: 1.2mm;
+  width: 3.4mm; height: 3.4mm; border-radius: 50%;
+  background: var(--ufpel-blue); border: 0.8mm solid #fff; box-shadow: 0 0 0 0.5mm var(--ufpel-blue);
+}
+.timeline .t-date { font-size: 8.5pt; font-weight: 600; color: var(--ufpel-blue); letter-spacing: .05em; text-transform: uppercase; }
+.timeline .t-name { font-size: 11pt; font-weight: 600; margin: 0.5mm 0 1mm; }
+.timeline .t-text { font-size: 9.5pt; color: var(--ufpel-muted); line-height: 1.5; }
+
+/* ---- gantt ------------------------------------------------------------------------ */
+.gantt { display: grid; row-gap: 2.5mm; font-size: 8.5pt; margin: 5mm 0; }
+.gantt .g-head { display: grid; grid-template-columns: subgrid; grid-column: 1 / -1; color: var(--ufpel-muted); font-weight: 500; }
+.gantt .g-head span { text-align: center; padding-bottom: 1mm; border-bottom: 0.6pt solid #E7E9F4; }
+.gantt .g-row { display: grid; grid-template-columns: subgrid; grid-column: 1 / -1; align-items: center; }
+.gantt .g-label { font-weight: 600; font-size: 9.5pt; padding-right: 4mm; }
+.gantt .g-bar {
+  height: 6mm; border-radius: 999px; background: var(--ufpel-blue);
+  color: #fff; font-size: 7.5pt; font-weight: 600;
+  display: flex; align-items: center; padding: 0 3mm; white-space: nowrap;
+}
+.gantt .g-bar.alt { background: var(--ufpel-sky); color: var(--ufpel-ink); }
+.gantt .g-milestone { width: 3.6mm; height: 3.6mm; background: var(--ufpel-navy); transform: rotate(45deg); justify-self: center; }
+
+/* ---- chart figure ------------------------------------------------------------------ */
+.chart { margin: 5mm 0; }
+.chart figcaption { font-size: 8.5pt; color: var(--ufpel-muted); margin-top: 2mm; }
+
+/* ---- code --------------------------------------------------------------------------- */
+.code {
+  background: #0B0B14; color: #E6E8F5; border-radius: 3mm;
+  padding: 4.5mm 6mm; font: 8.5pt/1.6 'SF Mono', 'Cascadia Code', monospace;
+  white-space: pre; overflow: hidden; margin: 5mm 0;
+}
+.code .tok-k { color: var(--ufpel-sky); }
+.code .tok-s { color: #8BE9BD; }
+.code .tok-c { color: #6B7086; }
+
+/* ---- quote ----------------------------------------------------------------------------- */
+.quote { margin: 6mm 0; padding-left: 8mm; border-left: 1mm solid var(--ufpel-blue); }
+.quote .q-text { font-size: 13pt; font-weight: 500; line-height: 1.5; }
+.quote .q-attr { margin-top: 2mm; font-size: 9.5pt; color: var(--ufpel-muted); }
+
+/* ---- diagram kit ------------------------------------------------------------------------ */
+svg.diagram { font-family: 'Montserrat', sans-serif; margin: 5mm 0; }
+svg.diagram .d-node { fill: #fff; stroke: var(--ufpel-ink); stroke-width: 1.2; rx: 9; }
+svg.diagram .d-node-black { fill: var(--ufpel-navy); rx: 9; }
+svg.diagram .d-node-tile { fill: var(--ufpel-sky); rx: 9; }
+svg.diagram .d-edge { stroke: var(--ufpel-ink); stroke-width: 1.2; fill: none; }
+svg.diagram .d-edge-dash { stroke: var(--ufpel-ink); stroke-width: 1.2; fill: none; stroke-dasharray: 5 4; }
+svg.diagram text { font-size: 11px; font-weight: 600; fill: var(--ufpel-ink); }
+svg.diagram text.on-dark { fill: #fff; }
+svg.diagram text.d-label { font-size: 10px; font-weight: 400; fill: var(--ufpel-muted); }
+
+/* ---- cover pieces -------------------------------------------------------------------------- */
+.cover-rule { display: flex; flex-direction: column; gap: 1.4mm; margin: 8mm 0; }
+.cover-rule .r1 { height: 1.1mm; width: 70mm; background: var(--ufpel-blue); }
+.cover-rule .r2 { height: 0.8mm; width: 42mm; background: var(--ufpel-sky); }
+.chip {
+  display: inline-block; border-radius: 999px; padding: 2mm 5mm;
+  font-size: 8.5pt; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  background: rgba(181, 220, 241, .16); color: var(--ufpel-sky);
+}

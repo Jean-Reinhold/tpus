@@ -1,0 +1,62 @@
+<!-- ======================================================================
+     PAGE 5 — BODY: diagram + steps + gantt
+     ====================================================================== -->
+<section class="page">
+  <div class="pg-header"><span>Document short title</span><img src="../../static/ufpel-marca.svg" alt=""></div>
+  <div class="body-content" style="padding-top:30mm;">
+    <h2 class="section" data-asset="heading"><span class="sec-num">3</span> Delivery plan</h2>
+
+    <h3 class="sub" data-asset="sub-1" style="margin-top:3mm;">3.1 Architecture</h3>
+    <svg class="diagram" data-asset="diagram" width="640" height="150" viewBox="0 0 640 150">
+      <defs>
+        <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#111111"/>
+        </marker>
+      </defs>
+      <rect class="d-node-tile" x="8" y="45" width="130" height="56" rx="9"/>
+      <text x="73" y="70" text-anchor="middle">Intake</text>
+      <text class="d-label" x="73" y="86" text-anchor="middle">PDF / audio / text</text>
+      <rect class="d-node" x="205" y="45" width="140" height="56" rx="9"/>
+      <text x="275" y="70" text-anchor="middle">Preprocessing</text>
+      <text class="d-label" x="275" y="86" text-anchor="middle">OCR · split · clean</text>
+      <rect class="d-node-black" x="412" y="40" width="150" height="66" rx="10"/>
+      <text class="on-dark" x="487" y="68" text-anchor="middle">AI Extraction</text>
+      <text class="d-label" x="487" y="84" text-anchor="middle" fill="#B5DCF1">schema-guided</text>
+      <line class="d-edge" x1="138" y1="73" x2="198" y2="73" marker-end="url(#arrow-ink)"/>
+      <line class="d-edge" x1="345" y1="73" x2="405" y2="73" marker-end="url(#arrow-ink)"/>
+      <line class="d-edge" x1="562" y1="73" x2="622" y2="73" marker-end="url(#arrow-ink)"/>
+    </svg>
+
+    <h3 class="sub" data-asset="sub-2">3.2 Phases</h3>
+    <div class="steps-v" data-asset="steps">
+      <div class="step-v">
+        <div class="sv-num">1</div>
+        <div><div class="sv-name">Analysis</div><div class="sv-text">Capture existing processes; identify automation potential.</div></div>
+      </div>
+      <div class="step-v">
+        <div class="sv-num">2</div>
+        <div><div class="sv-name">Design</div><div class="sv-text">Create workflows representing sequences and decision points.</div></div>
+      </div>
+      <div class="step-v">
+        <div class="sv-num">3</div>
+        <div><div class="sv-name">Implementation</div><div class="sv-text">Implement and test on the chosen environment.</div></div>
+      </div>
+    </div>
+
+    <h3 class="sub" data-asset="sub-3">3.3 Timeline</h3>
+    <div class="gantt" data-asset="gantt" style="grid-template-columns: 34mm repeat(6, 1fr);">
+      <div class="g-head">
+        <span style="border:none;"></span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span>
+      </div>
+      <div class="g-row"><div class="g-label">Discovery</div><div class="g-bar" style="grid-column: 2 / span 2;">Process capture</div></div>
+      <div class="g-row"><div class="g-label">Design</div><div class="g-bar alt" style="grid-column: 3 / span 2;">Workflows</div></div>
+      <div class="g-row"><div class="g-label">Implementation</div><div class="g-bar" style="grid-column: 4 / span 2;">Build + integrate</div></div>
+      <div class="g-row"><div class="g-label">Go-live</div><div class="g-milestone" style="grid-column: 7;"></div></div>
+    </div>
+
+    <div class="callout warning" data-asset="callout">
+      <b>Dependency:</b> ERP sandbox access must be granted before implementation starts.
+    </div>
+  </div>
+  <div class="pg-footer"><span class="f-tick"></span><span>July 2026</span><span class="f-title">Document short title</span><span class="f-page"><b>5</b> / 6</span></div>
+</section>

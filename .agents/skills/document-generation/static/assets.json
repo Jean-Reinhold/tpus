@@ -1,0 +1,46 @@
+{
+  "$schema-note": "Asset registry. Every asset carries a `description` (what it is, written from actually looking at the file) and a `placement` prompt (how it must be placed and what a validator should check).",
+  "brand": {
+    "name": "Universidade Federal de Pelotas (UFPel)",
+    "blue": "#00408F",
+    "navy": "#002A5C",
+    "sky": "#B5DCF1",
+    "accents": { "orange": "#F7A600", "red": "#C00D0D", "yellow": "#F9D500", "green": "#BCCF00" },
+    "fonts": "Montserrat variable 100-900 (static/fonts/Montserrat[wght].ttf), loaded via @font-face in the templates",
+    "source": "Manual de Identidade Visual da UFPel, CCS AGO/2021"
+  },
+  "assets": [
+    {
+      "id": "marca",
+      "file": "static/ufpel-marca.svg",
+      "size": { "width": 1064, "height": 473 },
+      "alpha": { "profile": "cutout" },
+      "description": "Official colored UFPel marca: circular escudo (deep blue with light-blue rays, orange pelota, green waves, torch with red flame) + vertical fio separador + 'UFPEL' sigla in deep blue Gotham Bold. Transparent background. PNG twin: static/ufpel-marca.png.",
+      "placement": "LIGHT SURFACES ONLY — the identity manual explicitly forbids the colored marca on dark or textured backgrounds. Content-slide footers (26-32px tall) and document headers (7-8mm tall). Never recolor, outline, shadow, rotate, distort, or frame; clearance around it of at least the escudo-to-fio gap. Validate: legible, unmodified, on white/pale surface only, not overlapping content."
+    },
+    {
+      "id": "marca-white",
+      "file": "static/ufpel-marca-white.svg",
+      "size": { "width": 1064, "height": 473 },
+      "alpha": { "profile": "cutout" },
+      "description": "White traço (negativo) version of the marca: escudo line-art + fio + UFPEL sigla, all in solid white. Invisible on white — dark surfaces only.",
+      "placement": "Dark surfaces only (covers, dividers, closings, dark-slide footers). Top-left on hero pages, height 56-72px (slides) / 15-18mm (documents). Footer use: 24-28px tall. Same integrity vetoes as the colored marca. Validate: legible, unmodified, correct corner, not overlapping content."
+    },
+    {
+      "id": "escudo",
+      "file": "static/ufpel-escudo.png",
+      "size": { "width": 1064, "height": 1064 },
+      "alpha": { "profile": "cutout" },
+      "description": "Official colored escudo alone (no sigla): circular shield, 'UNIVERSIDADE FEDERAL DE PELOTAS' and 'RS-BRASIL' inscriptions, alpha/omega + torch + pelota + waves.",
+      "placement": "Light surfaces only, for official-document contexts (title pages, certificates) where the round shield reads better than the horizontal marca. Height 90-140px (slides) / 20-30mm (documents). Same integrity vetoes as the marca. Validate: perfectly circular (no distortion), on light surface, clear space respected."
+    },
+    {
+      "id": "hero-bg",
+      "file": "static/ufpel-hero-bg.jpg",
+      "size": { "width": 1920, "height": 1080 },
+      "alpha": { "profile": "opaque" },
+      "description": "Generated UFPel hero surface: smooth diagonal gradient from deep navy (top-left) through official blue #00408F to a soft lifted-blue glow with subtle luzeiro rays at the bottom-right. Gaussian-dithered so it never bands in the PDF print path.",
+      "placement": "Default background for hero pages (ppt title/closing, doc covers) under a `.hero-veil`. Text always sits on the darker left/top side; nothing important over the bright corner. Portrait (A4) crops use object-position ~30% so the visible band stays deep blue. For subtle dark backgrounds (section dividers, quotes) use the templates' blue-only CSS `.ufpel-gradient` instead. Pair ONLY with the white traço marca — never the colored one."
+    }
+  ]
+}

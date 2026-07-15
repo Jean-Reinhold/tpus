@@ -1,0 +1,47 @@
+<!-- ======================================================================
+     PAGE 4 — BODY: table + chart
+     ====================================================================== -->
+<section class="page">
+  <div class="pg-header"><span>Document short title</span><img src="../../static/ufpel-marca.svg" alt=""></div>
+  <div class="body-content" style="padding-top:30mm;">
+    <h2 class="section" data-asset="heading"><span class="sec-num">2</span> Analysis</h2>
+    <p>Table 1 summarizes the key performance indicators across production lines during the review period.</p>
+
+    <table class="table" data-asset="table">
+      <thead>
+        <tr><th>Line</th><th>Owner</th><th class="num">Efficiency</th><th class="num">Quality</th><th class="num">Uptime</th><th class="num">Δ vs Q1</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Line A</td><td>Operations</td><td class="num stat-cell">87.3%</td><td class="num">99.2%</td><td class="num">94.1%</td><td class="num">+2.1 pp</td></tr>
+        <tr><td>Line B</td><td>Operations</td><td class="num stat-cell">82.1%</td><td class="num">99.5%</td><td class="num">91.8%</td><td class="num">+0.8 pp</td></tr>
+        <tr><td>Line C</td><td>Logistics</td><td class="num stat-cell">89.7%</td><td class="num">98.8%</td><td class="num">96.3%</td><td class="num">+4.6 pp</td></tr>
+        <tr><td>Line D</td><td>Logistics</td><td class="num stat-cell">78.4%</td><td class="num">99.1%</td><td class="num">89.5%</td><td class="num">−1.2 pp</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout success" data-asset="callout">
+      <b>Observation:</b> Line C leads on efficiency after last quarter's process improvements.
+    </div>
+
+    <h3 class="sub" data-asset="sub-1">2.1 Cost trajectory</h3>
+    <figure class="chart" data-asset="chart">
+      <canvas data-chart width="640" height="280"></canvas>
+      <script type="application/json">
+      {
+        "type": "line",
+        "data": {
+          "labels": ["Week 1","Week 4","Week 8","Week 12","Week 16","Week 20"],
+          "datasets": [ { "label": "€ / document", "data": [4.10, 2.60, 1.75, 1.20, 0.85, 0.62] } ]
+        }
+      }
+      </script>
+      <figcaption>Figure 1 — Unit cost across the first 20 weeks of operation.</figcaption>
+    </figure>
+
+    <div class="quote" data-asset="quote">
+      <div class="q-text">"The machines took over our repetitive work in weeks, not quarters."</div>
+      <div class="q-attr">Christopher Menzel · CEO, Universidade Federal de Pelotas</div>
+    </div>
+  </div>
+  <div class="pg-footer"><span class="f-tick"></span><span>July 2026</span><span class="f-title">Document short title</span><span class="f-page"><b>4</b> / 6</span></div>
+</section>

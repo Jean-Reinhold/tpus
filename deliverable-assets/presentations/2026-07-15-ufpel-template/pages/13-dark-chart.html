@@ -1,0 +1,36 @@
+<!-- ======================================================================
+     SLIDE 13 — DARK CONTENT VARIANT (chart on dark)
+     ====================================================================== -->
+<section class="slide dark" data-theme="dark">
+  <div class="content">
+    <div class="kicker">Deep dive</div>
+    <h2 class="heading" data-asset="heading" style="color:#fff;">Cost per document, <span class="em" style="color:#B5DCF1;">falling fast</span></h2>
+    <div class="body">
+    <div class="cols wide-left">
+      <figure class="chart" data-asset="chart-dark">
+        <canvas data-chart width="600" height="340"></canvas>
+        <script type="application/json">
+        {
+          "type": "line",
+          "data": {
+            "labels": ["Week 1","Week 4","Week 8","Week 12","Week 16","Week 20"],
+            "datasets": [ { "label": "€ / document", "data": [4.10, 2.60, 1.75, 1.20, 0.85, 0.62] } ]
+          }
+        }
+        </script>
+        <figcaption style="color:rgba(255,255,255,.6);">Unit cost across the first 20 weeks of operation.</figcaption>
+      </figure>
+      <ul class="bullets" data-asset="bullets" style="font-size:17px;">
+        <li>Cost falls as correction feedback accumulates.</li>
+        <li>Human review needed for 2% of documents by week 20.</li>
+        <li>Break-even against manual processing at week 9.</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  <div class="footer" style="color:rgba(255,255,255,.55);">
+    <img src="assets/ufpel-marca-white.svg" alt="">
+    <span class="f-title">Presentation title</span>
+    <span class="f-page"><b>13</b> / 14</span>
+  </div>
+</section>

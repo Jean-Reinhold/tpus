@@ -1,0 +1,12 @@
+{
+  "name": "ufpel-document-generation",
+  "private": true,
+  "type": "module",
+  "description": "Render pipeline for UFPel branded HTML documents and presentations",
+  "scripts": {
+    "render": "node scripts/render.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

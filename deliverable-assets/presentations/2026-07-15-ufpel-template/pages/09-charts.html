@@ -1,0 +1,50 @@
+<!-- ======================================================================
+     SLIDE 9 — CHARTS (Chart.js, UFPel theme)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Data</div>
+    <h2 class="heading" data-asset="heading">Quarterly performance, <span class="em">visualized</span></h2>
+    <div class="body">
+    <div class="cols">
+      <figure class="chart" data-asset="chart-bar">
+        <canvas data-chart width="520" height="330"></canvas>
+        <script type="application/json">
+        {
+          "type": "bar",
+          "data": {
+            "labels": ["Q1", "Q2", "Q3", "Q4"],
+            "datasets": [
+              { "label": "Metric A", "data": [42, 58, 71, 85] },
+              { "label": "Metric B", "data": [35, 44, 62, 74] }
+            ]
+          }
+        }
+        </script>
+        <figcaption>Metric A and B by quarter, indexed (2026).</figcaption>
+      </figure>
+      <figure class="chart" data-asset="chart-line">
+        <canvas data-chart width="520" height="330"></canvas>
+        <script type="application/json">
+        {
+          "type": "line",
+          "data": {
+            "labels": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+            "datasets": [
+              { "label": "Target", "data": [10,17,24,31,38,45,52,59,66,73,80,87] },
+              { "label": "Baseline", "data": [8,13,15,22,28,33,40,44,52,57,63,70] }
+            ]
+          }
+        }
+        </script>
+        <figcaption>12-month growth trajectory vs baseline.</figcaption>
+      </figure>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Presentation title</span>
+    <span class="f-page"><b>9</b> / 14</span>
+  </div>
+</section>
