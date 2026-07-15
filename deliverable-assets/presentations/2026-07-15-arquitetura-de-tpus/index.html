@@ -75,7 +75,7 @@
     <div style="max-width:900px;">
       <span class="chip" data-asset="kicker-chip">Seminário · Arquitetura e Organização de Computadores</span>
       <h1 class="title" data-asset="title" style="margin-top:22px;">TPU: o processador que aposta tudo em <span class="em">multiplicar matrizes</span></h1>
-      <p class="lead" data-asset="subtitle" style="margin-top:20px;">Uma visão geral da arquitetura de hardware do acelerador de IA do Google — do array sistólico à topologia em toro.</p>
+      <p class="lead" data-asset="subtitle" style="margin-top:20px;">Uma visão geral da arquitetura de hardware do chip de IA do Google, do array sistólico à conexão em toro.</p>
     </div>
     <div data-asset="meta" style="margin-top:44px; font-size:15px; color:rgba(255,255,255,.75);">
       Jean Reinhold &nbsp;·&nbsp; Matrícula 21101175 &nbsp;·&nbsp; Universidade Federal de Pelotas &nbsp;·&nbsp; Julho de 2026
@@ -94,15 +94,15 @@
     <div class="agenda" data-asset="agenda">
       <div class="agenda-item">
         <div class="a-num">1</div>
-        <div><div class="a-name">Fundamentos</div><div class="a-note">O que é uma TPU, por que ela existe e como se compara a CPUs e GPUs</div></div>
+        <div><div class="a-name">Fundamentos</div><div class="a-note">O que é uma TPU, o que uma rede neural calcula e como o chip se compara com CPU e GPU</div></div>
       </div>
       <div class="agenda-item">
         <div class="a-num">2</div>
-        <div><div class="a-name">Por dentro do chip</div><div class="a-note">Diagrama de blocos da TPU v1, o array sistólico e as fontes de eficiência</div></div>
+        <div><div class="a-name">Por dentro do chip</div><div class="a-note">O diagrama de blocos, o array sistólico e por que o chip é tão eficiente</div></div>
       </div>
       <div class="agenda-item">
         <div class="a-num">3</div>
-        <div><div class="a-name">Classificação e escala</div><div class="a-note">Taxonomia de Flynn, a TPU moderna, topologia de interconexão e desempenho</div></div>
+        <div><div class="a-name">Classificação e escala</div><div class="a-note">Taxonomia de Flynn, a TPU de hoje, a conexão em toro e os números</div></div>
       </div>
     </div>
     </div>
@@ -110,7 +110,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>2</b> / 16</span>
+    <span class="f-page"><b>2</b> / 17</span>
   </div>
 </section>
 
@@ -138,7 +138,7 @@
   <div class="footer" style="color:rgba(255,255,255,.55);">
     <img src="assets/ufpel-marca-white.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>3</b> / 16</span>
+    <span class="f-page"><b>3</b> / 17</span>
   </div>
 </section>
 
@@ -152,14 +152,14 @@
     <div class="body">
     <div class="cols wide-left">
       <ul class="bullets" data-asset="bullets">
-        <li><b>ASIC</b> (circuito integrado de aplicação específica): um chip projetado para uma única tarefa — executar redes neurais — em vez de qualquer programa.</li>
+        <li><b>ASIC</b> (circuito integrado de aplicação específica): um chip feito para uma única tarefa. No caso, executar redes neurais.</li>
         <li><b>Motivação (2013):</b> se cada usuário usasse busca por voz 3 minutos por dia, o Google teria de dobrar o número de datacenters.</li>
-        <li>Do projeto ao datacenter em <b>15 meses</b>; em produção desde 2015 na Busca, no Tradutor, no Fotos e no AlphaGo.</li>
-        <li><b>A aposta:</b> quase todo o custo de uma rede neural é multiplicação de matrizes — o chip inteiro se organiza em torno dela.</li>
+        <li>Saiu do papel em <b>15 meses</b> e roda em produção desde 2015 na Busca, no Tradutor, no Fotos e no AlphaGo.</li>
+        <li><b>A aposta:</b> quase todo o trabalho de uma rede neural é multiplicar matrizes, então o chip inteiro gira em torno disso.</li>
       </ul>
       <div class="card-insight" data-asset="insight">
         <div class="c-kicker">Ideia central</div>
-        Arquitetura de domínio específico: a TPU troca a generalidade da CPU por <span class="em" style="font-weight:600; color:var(--ufpel-sky);">30–80× mais desempenho por watt</span> em uma única tarefa.
+        A TPU abre mão de rodar qualquer programa em troca de <span class="em" style="font-weight:600; color:var(--ufpel-sky);">30–80× mais desempenho por watt</span> na única tarefa que interessa.
       </div>
     </div>
     </div>
@@ -167,7 +167,73 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>4</b> / 16</span>
+    <span class="f-page"><b>4</b> / 17</span>
+  </div>
+</section>
+
+<!-- ======================================================================
+     SLIDE 5 — O QUE UMA REDE NEURAL CALCULA
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Fundamentos</div>
+    <h2 class="heading" data-asset="heading">Antes do chip: o que uma rede neural <span class="em">calcula</span></h2>
+    <div class="body">
+    <div class="cols wide-left">
+      <svg class="diagram" data-asset="diagram" width="620" height="420" viewBox="0 0 620 420">
+        <text x="310" y="28" text-anchor="middle" style="font-weight:600;">y = f(W · x + b)</text>
+        <text class="d-label" x="210" y="54" text-anchor="middle">matriz W₁</text>
+        <text class="d-label" x="410" y="54" text-anchor="middle">matriz W₂</text>
+
+        <!-- conexões camada 1 -> 2 -->
+        <g stroke="#54677D" stroke-opacity=".35" stroke-width="1.2">
+          <line x1="130" y1="110" x2="290" y2="80"/><line x1="130" y1="110" x2="290" y2="260"/><line x1="130" y1="110" x2="290" y2="350"/>
+          <line x1="130" y1="210" x2="290" y2="80"/><line x1="130" y1="210" x2="290" y2="260"/><line x1="130" y1="210" x2="290" y2="350"/>
+          <line x1="130" y1="310" x2="290" y2="80"/><line x1="130" y1="310" x2="290" y2="260"/><line x1="130" y1="310" x2="290" y2="350"/>
+        </g>
+        <!-- em destaque: os pesos que chegam a um neurônio = uma linha de W₁ -->
+        <g stroke="#00408F" stroke-width="2.2">
+          <line x1="130" y1="110" x2="290" y2="170"/>
+          <line x1="130" y1="210" x2="290" y2="170"/>
+          <line x1="130" y1="310" x2="290" y2="170"/>
+        </g>
+
+        <!-- conexões camada 2 -> 3 -->
+        <g stroke="#54677D" stroke-opacity=".35" stroke-width="1.2">
+          <line x1="330" y1="80" x2="490" y2="150"/><line x1="330" y1="80" x2="490" y2="270"/>
+          <line x1="330" y1="170" x2="490" y2="150"/><line x1="330" y1="170" x2="490" y2="270"/>
+          <line x1="330" y1="260" x2="490" y2="150"/><line x1="330" y1="260" x2="490" y2="270"/>
+          <line x1="330" y1="350" x2="490" y2="150"/><line x1="330" y1="350" x2="490" y2="270"/>
+        </g>
+
+        <!-- neurônios -->
+        <g fill="#ffffff" stroke="#14202E" stroke-width="1.5">
+          <circle cx="110" cy="110" r="20"/><circle cx="110" cy="210" r="20"/><circle cx="110" cy="310" r="20"/>
+        </g>
+        <g fill="#B5DCF1" stroke="#14202E" stroke-width="1.5">
+          <circle cx="310" cy="80" r="20"/><circle cx="310" cy="170" r="20"/><circle cx="310" cy="260" r="20"/><circle cx="310" cy="350" r="20"/>
+        </g>
+        <g fill="#00408F" stroke="#14202E" stroke-width="1.5">
+          <circle cx="510" cy="150" r="20"/><circle cx="510" cy="270" r="20"/>
+        </g>
+
+        <text class="d-label" x="110" y="398" text-anchor="middle">entrada x</text>
+        <text class="d-label" x="310" y="398" text-anchor="middle">camada oculta</text>
+        <text class="d-label" x="510" y="398" text-anchor="middle">saída y</text>
+      </svg>
+      <ul class="bullets" data-asset="bullets" style="font-size:17px;">
+        <li>Cada camada faz sempre a mesma conta: multiplica a entrada pela matriz de pesos <b>W</b>, soma um viés <b>b</b> e aplica uma função simples, como a ReLU.</li>
+        <li>Cada seta do desenho carrega um peso. As setas azuis, por exemplo, formam uma linha inteira de W₁.</li>
+        <li>Os pesos são ajustados no treino. Na inferência, quando a rede responde, eles ficam fixos.</li>
+        <li>Redes de verdade empilham dezenas de camadas e repetem essa conta bilhões de vezes. A maior parte do tempo é multiplicação de matrizes.</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Arquitetura de TPUs</span>
+    <span class="f-page"><b>5</b> / 17</span>
   </div>
 </section>
 
@@ -177,7 +243,7 @@
 <section class="slide">
   <div class="content">
     <div class="kicker">Comparação</div>
-    <h2 class="heading" data-asset="heading">CPU, GPU e TPU: três <span class="em">filosofias de projeto</span></h2>
+    <h2 class="heading" data-asset="heading">CPU, GPU e TPU <span class="em">lado a lado</span></h2>
     <div class="body">
     <table class="table" data-asset="table">
       <thead>
@@ -193,14 +259,14 @@
       </tbody>
     </table>
     <div class="callout" data-asset="callout" style="margin-top:32px;">
-      <b>Regra de bolso:</b> a CPU minimiza a latência de uma tarefa; a GPU maximiza a vazão de milhares de tarefas; a TPU maximiza operações de matriz por joule.
+      <b>Em resumo:</b> a CPU quer terminar uma tarefa o quanto antes; a GPU quer fazer milhares ao mesmo tempo; a TPU quer fazer o máximo de contas de matriz por watt.
     </div>
     </div>
   </div>
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>5</b> / 16</span>
+    <span class="f-page"><b>6</b> / 17</span>
   </div>
 </section>
 
@@ -228,7 +294,7 @@
   <div class="footer" style="color:rgba(255,255,255,.55);">
     <img src="assets/ufpel-marca-white.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>6</b> / 16</span>
+    <span class="f-page"><b>7</b> / 17</span>
   </div>
 </section>
 
@@ -301,7 +367,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>7</b> / 16</span>
+    <span class="f-page"><b>8</b> / 17</span>
   </div>
 </section>
 
@@ -376,21 +442,21 @@
 
       <!-- anotações à direita -->
       <text class="d-label" x="880" y="96">Cada célula multiplica, soma e</text>
-      <text class="d-label" x="880" y="114">passa o resultado ao vizinho —</text>
+      <text class="d-label" x="880" y="114">passa o resultado ao vizinho,</text>
       <text class="d-label" x="880" y="132">sem voltar à memória.</text>
       <text class="d-label" x="880" y="196">Ativações fluem para a direita;</text>
       <text class="d-label" x="880" y="214">somas parciais descem.</text>
       <text class="d-label" x="880" y="278">“Sistólico”: os dados pulsam pelo</text>
       <text class="d-label" x="880" y="296">chip como o sangue bombeado</text>
-      <text class="d-label" x="880" y="314">pelo coração — na v1, uma grade</text>
-      <text class="d-label" x="880" y="332">de 256 × 256 células.</text>
+      <text class="d-label" x="880" y="314">pelo coração. Na v1, a grade</text>
+      <text class="d-label" x="880" y="332">tem 256 × 256 células.</text>
     </svg>
     </div>
   </div>
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>8</b> / 16</span>
+    <span class="f-page"><b>9</b> / 17</span>
   </div>
 </section>
 
@@ -400,7 +466,7 @@
 <section class="slide">
   <div class="content">
     <div class="kicker">Por dentro do chip</div>
-    <h2 class="heading" data-asset="heading">Três decisões de projeto <span class="em">radicais</span></h2>
+    <h2 class="heading" data-asset="heading">Três escolhas que explicam a <span class="em">eficiência</span></h2>
     <div class="body">
     <div class="stats" data-asset="stats">
       <div class="stat">
@@ -411,7 +477,7 @@
       <div class="stat">
         <div class="s-label">Lógica de controle</div>
         <div class="s-value">&lt; 2%</div>
-        <div class="s-note">Do die. Sem caches, sem previsão de desvio, sem execução fora de ordem — quase todo o chip é datapath.</div>
+        <div class="s-note">Do chip. Sem cache, sem previsão de desvio, sem execução fora de ordem. Quase todo o silício faz conta.</div>
       </div>
       <div class="stat">
         <div class="s-label">ISA minimalista (CISC)</div>
@@ -420,14 +486,14 @@
       </div>
     </div>
     <div class="callout" data-asset="callout" style="margin-top:64px;">
-      <b>Determinismo:</b> sem especulação, a latência é previsível — o Google consegue garantir respostas em menos de 7 ms mesmo com o datacenter sob carga.
+      <b>Determinismo:</b> sem especulação, a latência é previsível. Dá para garantir resposta em menos de 7 ms mesmo com o datacenter cheio.
     </div>
     </div>
   </div>
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>9</b> / 16</span>
+    <span class="f-page"><b>10</b> / 17</span>
   </div>
 </section>
 
@@ -455,67 +521,74 @@
   <div class="footer" style="color:rgba(255,255,255,.55);">
     <img src="assets/ufpel-marca-white.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>10</b> / 16</span>
+    <span class="f-page"><b>11</b> / 17</span>
   </div>
 </section>
 
 <!-- ======================================================================
-     SLIDE 11 — TAXONOMIA DE FLYNN
+     SLIDE 12 — TAXONOMIA DE FLYNN (grade 2×2 + traços da TPU)
      ====================================================================== -->
 <section class="slide">
   <div class="content">
     <div class="kicker">Classificação</div>
     <h2 class="heading" data-asset="heading">Onde a TPU cai na <span class="em">taxonomia de Flynn</span>?</h2>
     <div class="body">
-    <svg class="diagram" data-asset="diagram" width="1136" height="440" viewBox="0 0 1136 440">
-      <defs>
-        <marker id="arrow-blue-3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-          <path d="M0 0 L10 5 L0 10 z" fill="#00408F"/>
-        </marker>
-      </defs>
+    <div class="cols wide-left">
+      <svg class="diagram" data-asset="diagram" width="620" height="430" viewBox="0 0 620 430">
+        <defs>
+          <marker id="arrow-blue-3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#00408F"/>
+          </marker>
+        </defs>
 
-      <!-- eixos -->
-      <text class="d-label" x="370" y="24" text-anchor="middle" style="font-weight:600;">UM fluxo de dados (SD)</text>
-      <text class="d-label" x="850" y="24" text-anchor="middle" style="font-weight:600;">MÚLTIPLOS fluxos de dados (MD)</text>
-      <text class="d-label" x="52" y="110" text-anchor="middle" style="font-weight:600;" transform="rotate(-90 52 110)">UMA instrução (SI)</text>
-      <text class="d-label" x="52" y="300" text-anchor="middle" style="font-weight:600;" transform="rotate(-90 52 300)">MÚLTIPLAS (MI)</text>
+        <!-- eixos -->
+        <text class="d-label" x="180" y="22" text-anchor="middle" style="font-weight:600;">um fluxo de dados</text>
+        <text class="d-label" x="465" y="22" text-anchor="middle" style="font-weight:600;">vários fluxos de dados</text>
+        <text class="d-label" x="22" y="127" text-anchor="middle" style="font-weight:600;" transform="rotate(-90 22 127)">uma instrução</text>
+        <text class="d-label" x="22" y="327" text-anchor="middle" style="font-weight:600;" transform="rotate(-90 22 327)">várias instruções</text>
 
-      <!-- quadrantes -->
-      <rect class="d-node" x="140" y="40" width="460" height="150" rx="16"/>
-      <text x="170" y="80">SISD</text>
-      <text class="d-label" x="170" y="108">CPU de um núcleo</text>
-      <text class="d-label" x="170" y="128">um fluxo de instruções sobre um fluxo de dados</text>
+        <!-- SISD -->
+        <rect class="d-node" x="45" y="40" width="270" height="175" rx="16"/>
+        <text x="70" y="80">SISD</text>
+        <text class="d-label" x="70" y="108">CPU de um núcleo</text>
+        <text class="d-label" x="70" y="128">uma conta por vez</text>
 
-      <rect class="d-node-tile" x="620" y="40" width="460" height="150" rx="16"/>
-      <text x="650" y="80">SIMD</text>
-      <text class="d-label" x="650" y="108">GPU (variante SIMT) · extensões vetoriais (AVX/NEON)</text>
-      <text class="d-label" x="650" y="128">uma instrução aplicada a muitos dados de uma vez</text>
+        <!-- SIMD (é aqui que a TPU fica) -->
+        <rect class="d-node-tile" x="330" y="40" width="270" height="175" rx="16"/>
+        <text x="355" y="80">SIMD</text>
+        <text class="d-label" x="355" y="108">GPU (variante SIMT)</text>
+        <text class="d-label" x="355" y="128">vetores AVX/NEON</text>
+        <rect x="355" y="152" width="170" height="40" rx="20" fill="#00408F"/>
+        <text x="440" y="178" text-anchor="middle" fill="#ffffff" style="font-weight:600;">TPU (MXU)</text>
 
-      <rect class="d-node" x="140" y="230" width="460" height="150" rx="16"/>
-      <text x="170" y="270">MISD</text>
-      <text class="d-label" x="170" y="298">quase vazio na prática</text>
-      <text class="d-label" x="170" y="318">citação clássica: arrays sistólicos (classificação contestada)</text>
+        <!-- MISD -->
+        <rect class="d-node" x="45" y="240" width="270" height="175" rx="16"/>
+        <text x="70" y="280">MISD</text>
+        <text class="d-label" x="70" y="308">quase vazio na prática;</text>
+        <text class="d-label" x="70" y="328">arrays sistólicos já foram</text>
+        <text class="d-label" x="70" y="348">colocados aqui</text>
 
-      <rect class="d-node" x="620" y="230" width="460" height="150" rx="16"/>
-      <text x="650" y="270">MIMD</text>
-      <text class="d-label" x="650" y="298">CPU multicore · clusters · multiprocessadores</text>
-      <text class="d-label" x="650" y="318">fluxos independentes de instruções e de dados</text>
+        <!-- MIMD -->
+        <rect class="d-node" x="330" y="240" width="270" height="175" rx="16"/>
+        <text x="355" y="280">MIMD</text>
+        <text class="d-label" x="355" y="308">CPU multicore, clusters</text>
+        <text class="d-label" x="355" y="328">cada núcleo com seu fluxo</text>
 
-      <!-- TPU: entre SIMD e MISD -->
-      <rect x="700" y="152" width="170" height="40" rx="20" fill="#00408F"/>
-      <text x="785" y="178" text-anchor="middle" fill="#ffffff" style="font-weight:600;">TPU (MXU)</text>
-      <path class="d-edge-dash" d="M700 176 C 560 210, 480 224, 604 268" fill="none" stroke="#00408F" marker-end="url(#arrow-blue-3)"/>
-
-      <!-- veredicto -->
-      <text class="d-label" x="140" y="412">Veredicto: a TPU executa <tspan style="font-weight:600;" fill="#00408F">uma instrução (MatrixMultiply) sobre 65.536 dados — comportamento SIMD</tspan> —</text>
-      <text class="d-label" x="140" y="432">mas, no array sistólico, os dados se transformam ao fluir de célula em célula, um traço que lembra MISD. Flynn não captura dataflow.</text>
-    </svg>
+        <!-- traço herdado de MISD -->
+        <path class="d-edge-dash" d="M388 198 C 350 226, 330 234, 305 252" fill="none" stroke="#00408F" marker-end="url(#arrow-blue-3)"/>
+      </svg>
+      <ul class="bullets" data-asset="bullets" style="font-size:17px;">
+        <li><b>Por que SIMD:</b> uma única instrução, MatrixMultiply, dispara 65.536 contas de uma vez, cada uma sobre um dado diferente.</li>
+        <li><b>O traço de MISD (seta tracejada):</b> dentro do array o dado não fica parado. Ele vai sendo transformado em cadeia, célula após célula.</li>
+        <li><b>Resumo:</b> trate a TPU como SIMD. O fluxo sistólico é o detalhe que a taxonomia de 1966 não previu.</li>
+      </ul>
+    </div>
     </div>
   </div>
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>11</b> / 16</span>
+    <span class="f-page"><b>12</b> / 17</span>
   </div>
 </section>
 
@@ -551,13 +624,13 @@
 
       <!-- MXU -->
       <rect class="d-node-black" x="540" y="90" width="290" height="120" rx="16"/>
-      <text class="on-dark" x="685" y="136" text-anchor="middle">MXU — array sistólico</text>
+      <text class="on-dark" x="685" y="136" text-anchor="middle">MXU (array sistólico)</text>
       <text class="d-label" x="685" y="160" text-anchor="middle" fill="#B5DCF1">128×128 (v4/v5) · 256×256 (v6e)</text>
       <text class="d-label" x="685" y="182" text-anchor="middle" fill="#B5DCF1">v5p: 459 TFLOPs bf16 por chip</text>
 
       <!-- VPU -->
       <rect class="d-node" x="540" y="240" width="290" height="110" rx="14"/>
-      <text x="685" y="286" text-anchor="middle">VPU — unidade vetorial</text>
+      <text x="685" y="286" text-anchor="middle">VPU (unidade vetorial)</text>
       <text class="d-label" x="685" y="308" text-anchor="middle">SIMD clássico: ReLU, somas, reduções</text>
 
       <!-- ICI -->
@@ -573,7 +646,7 @@
       <line class="d-edge" x1="860" y1="205" x2="932" y2="205" marker-start="url(#arrow-ink-4)" marker-end="url(#arrow-ink-4)"/>
 
       <!-- fonte -->
-      <text class="d-label" x="40" y="404">O acesso à VMEM é ~22× mais rápido que à HBM — pesos e ativações são pré-carregados para alimentar o MXU sem paradas.</text>
+      <text class="d-label" x="40" y="404">O acesso à VMEM é ~22× mais rápido que à HBM. Pesos e ativações são pré-carregados para o MXU nunca ficar parado.</text>
       <text class="d-label" x="40" y="424">Fonte: How to Think About TPUs (JAX Scaling Book).</text>
     </svg>
     </div>
@@ -581,21 +654,23 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>12</b> / 16</span>
+    <span class="f-page"><b>13</b> / 17</span>
   </div>
 </section>
 
 <!-- ======================================================================
-     SLIDE 13 — TOPOLOGIA (malha × toro)
+     SLIDE 14 — TOPOLOGIA (malha × toro, com exemplo de saltos)
      ====================================================================== -->
 <section class="slide">
   <div class="content">
     <div class="kicker">Escala</div>
-    <h2 class="heading" data-asset="heading">Do chip ao pod: topologia em <span class="em">toro</span></h2>
+    <h2 class="heading" data-asset="heading">Do chip ao pod: a conexão em <span class="em">toro</span></h2>
     <div class="body">
-    <svg class="diagram" data-asset="diagram" width="1136" height="430" viewBox="0 0 1136 430">
+    <svg class="diagram" data-asset="diagram" width="1136" height="434" viewBox="0 0 1136 434">
+      <text class="d-label" x="568" y="14" text-anchor="middle">Cada bolinha é um chip TPU; cada linha, um enlace ICI (ligação direta de chip a chip).</text>
+
       <!-- ===================== painel esquerdo: malha ===================== -->
-      <text x="245" y="40" text-anchor="middle" style="font-weight:600;">Malha 2D (mesh)</text>
+      <text x="245" y="44" text-anchor="middle" style="font-weight:600;">Malha 2D</text>
       <!-- arestas -->
       <g stroke="#54677D" stroke-width="1.5">
         <line x1="120" y1="90"  x2="330" y2="90"/><line x1="120" y1="160" x2="330" y2="160"/>
@@ -603,6 +678,8 @@
         <line x1="120" y1="90"  x2="120" y2="300"/><line x1="190" y1="90"  x2="190" y2="300"/>
         <line x1="260" y1="90"  x2="260" y2="300"/><line x1="330" y1="90"  x2="330" y2="300"/>
       </g>
+      <!-- caminho de exemplo: canto a canto, 6 saltos -->
+      <polyline points="120,90 330,90 330,300" fill="none" stroke="#E58E1A" stroke-width="3.5" opacity=".85"/>
       <!-- nós -->
       <g fill="#ffffff" stroke="#14202E" stroke-width="1.5">
         <circle cx="120" cy="90" r="10"/><circle cx="190" cy="90" r="10"/><circle cx="260" cy="90" r="10"/><circle cx="330" cy="90" r="10"/>
@@ -610,19 +687,23 @@
         <circle cx="120" cy="230" r="10"/><circle cx="190" cy="230" r="10"/><circle cx="260" cy="230" r="10"/><circle cx="330" cy="230" r="10"/>
         <circle cx="120" cy="300" r="10"/><circle cx="190" cy="300" r="10"/><circle cx="260" cy="300" r="10"/><circle cx="330" cy="300" r="10"/>
       </g>
-      <text class="d-label" x="245" y="352" text-anchor="middle">sem enlaces de retorno:</text>
-      <text class="d-label" x="245" y="372" text-anchor="middle">até 6 saltos entre cantos opostos (4×4)</text>
+      <circle cx="120" cy="90" r="15" fill="none" stroke="#E58E1A" stroke-width="2.5"/>
+      <circle cx="330" cy="300" r="15" fill="none" stroke="#E58E1A" stroke-width="2.5"/>
+      <text x="96" y="78" style="font-weight:600; font-size:14px;">A</text>
+      <text x="346" y="322" style="font-weight:600; font-size:14px;">B</text>
+      <text class="d-label" x="245" y="352" text-anchor="middle">do chip A ao chip B: <tspan style="font-weight:600;">6 saltos</tspan></text>
+      <text class="d-label" x="245" y="372" text-anchor="middle">a mensagem pula de vizinho em vizinho, e cada salto custa tempo</text>
 
       <!-- ===================== painel direito: toro ===================== -->
-      <text x="765" y="40" text-anchor="middle" style="font-weight:600;">Toro 2D (com wraparound) — a escolha da TPU</text>
-      <!-- arco de retorno demonstrativo (linha superior) -->
-      <path d="M660 90 C 690 46, 840 46, 870 90" fill="none" stroke="#B5DCF1" stroke-width="2.5"/>
-      <text class="d-label" x="765" y="56" text-anchor="middle">enlace de retorno</text>
-      <!-- stubs de wraparound horizontais -->
+      <text x="765" y="44" text-anchor="middle" style="font-weight:600;">Toro 2D = malha + retorno nas bordas</text>
+      <!-- stubs de wraparound (o enlace continua do outro lado) -->
       <g stroke="#B5DCF1" stroke-width="2.5" stroke-dasharray="4 5">
         <line x1="660" y1="160" x2="622" y2="160"/><line x1="870" y1="160" x2="908" y2="160"/>
         <line x1="660" y1="230" x2="622" y2="230"/><line x1="870" y1="230" x2="908" y2="230"/>
         <line x1="660" y1="300" x2="622" y2="300"/><line x1="870" y1="300" x2="908" y2="300"/>
+        <line x1="660" y1="90" x2="660" y2="70"/><line x1="660" y1="300" x2="660" y2="320"/>
+        <line x1="730" y1="90" x2="730" y2="70"/><line x1="730" y1="300" x2="730" y2="320"/>
+        <line x1="800" y1="90" x2="800" y2="70"/><line x1="800" y1="300" x2="800" y2="320"/>
       </g>
       <!-- arestas -->
       <g stroke="#54677D" stroke-width="1.5">
@@ -631,6 +712,12 @@
         <line x1="660" y1="90"  x2="660" y2="300"/><line x1="730" y1="90"  x2="730" y2="300"/>
         <line x1="800" y1="90"  x2="800" y2="300"/><line x1="870" y1="90"  x2="870" y2="300"/>
       </g>
+      <!-- caminho de exemplo no toro: 2 saltos pelas voltas -->
+      <path d="M660 90 C 692 44, 838 44, 870 90" fill="none" stroke="#E58E1A" stroke-width="3" opacity=".9"/>
+      <g stroke="#E58E1A" stroke-width="3" stroke-dasharray="4 5" opacity=".9">
+        <line x1="870" y1="90" x2="870" y2="64"/>
+        <line x1="870" y1="300" x2="870" y2="326"/>
+      </g>
       <!-- nós -->
       <g fill="#00408F">
         <circle cx="660" cy="90" r="10"/><circle cx="730" cy="90" r="10"/><circle cx="800" cy="90" r="10"/><circle cx="870" cy="90" r="10"/>
@@ -638,18 +725,23 @@
         <circle cx="660" cy="230" r="10"/><circle cx="730" cy="230" r="10"/><circle cx="800" cy="230" r="10"/><circle cx="870" cy="230" r="10"/>
         <circle cx="660" cy="300" r="10"/><circle cx="730" cy="300" r="10"/><circle cx="800" cy="300" r="10"/><circle cx="870" cy="300" r="10"/>
       </g>
-      <text class="d-label" x="765" y="352" text-anchor="middle">a distância máxima cai pela metade · v5e/v6e: toro 2D 16×16 (256 chips por pod)</text>
-      <text class="d-label" x="765" y="372" text-anchor="middle">v4/v5p: toro 3D — cada chip tem 6 vizinhos; v5p: até 8.960 chips (16×20×28)</text>
+      <circle cx="660" cy="90" r="15" fill="none" stroke="#E58E1A" stroke-width="2.5"/>
+      <circle cx="870" cy="300" r="15" fill="none" stroke="#E58E1A" stroke-width="2.5"/>
+      <text x="636" y="78" style="font-weight:600; font-size:14px;">A</text>
+      <text x="890" y="322" style="font-weight:600; font-size:14px;">B</text>
+      <text class="d-label" x="765" y="352" text-anchor="middle">o mesmo caminho leva <tspan style="font-weight:600;">2 saltos</tspan>: a volta da linha e a volta da coluna</text>
+      <text class="d-label" x="765" y="372" text-anchor="middle">tracejado: o enlace sai por uma borda e continua na borda oposta</text>
 
-      <!-- ligação com a disciplina -->
-      <text class="d-label" x="568" y="418" text-anchor="middle" style="font-weight:600;">Chips conectados por ICI (90 GB/s por eixo no v5p) — a mesma família de topologias de redes de interconexão: malha, toro, hipercubo.</text>
+      <!-- escala real e ligação com a disciplina -->
+      <text class="d-label" x="568" y="404" text-anchor="middle">Pod: conjunto de chips ligados pelo ICI (90 GB/s por eixo na v5p). v5e/v6e: toro 2D 16×16, 256 chips; v4/v5p: toro 3D, até 8.960 chips.</text>
+      <text class="d-label" x="568" y="426" text-anchor="middle" style="font-weight:600;">São as mesmas topologias de redes de interconexão da disciplina: malha, toro, hipercubo.</text>
     </svg>
     </div>
   </div>
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>13</b> / 16</span>
+    <span class="f-page"><b>14</b> / 17</span>
   </div>
 </section>
 
@@ -690,7 +782,7 @@
           }
         }
         </script>
-        <figcaption style="color:rgba(255,255,255,.6);">Pico de computação por chip (bf16) — TPU v3 ao v6e “Trillium” (JAX Scaling Book).</figcaption>
+        <figcaption style="color:rgba(255,255,255,.6);">Pico de computação por chip (bf16), da v3 à v6e “Trillium” (JAX Scaling Book).</figcaption>
       </figure>
     </div>
     </div>
@@ -698,7 +790,7 @@
   <div class="footer" style="color:rgba(255,255,255,.55);">
     <img src="assets/ufpel-marca-white.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>14</b> / 16</span>
+    <span class="f-page"><b>15</b> / 17</span>
   </div>
 </section>
 
@@ -712,10 +804,10 @@
     <div class="body">
     <div class="cols wide-left">
       <ul class="bullets" data-asset="bullets">
-        <li>Uma TPU é um <b>ASIC para redes neurais</b>: o array sistólico multiplica matrizes com pouquíssimo acesso à memória.</li>
-        <li>Na <b>taxonomia de Flynn</b>, comporta-se como SIMD — uma instrução, dezenas de milhares de dados — mas o dataflow sistólico não cabe perfeitamente em nenhuma classe.</li>
-        <li>CPU, GPU e TPU não competem: são pontos diferentes na troca entre <b>generalidade e eficiência</b>.</li>
-        <li>Em escala, chips se conectam por ICI em <b>toros 2D/3D</b> — a mesma família de topologias das redes de interconexão clássicas.</li>
+        <li>A TPU é um <b>chip feito para redes neurais</b>: o array sistólico multiplica matrizes quase sem tocar a memória.</li>
+        <li>Na <b>taxonomia de Flynn</b>, ela se comporta como SIMD: uma instrução, milhares de dados. O fluxo sistólico é o detalhe que a taxonomia não cobre.</li>
+        <li>CPU, GPU e TPU não competem: são escolhas diferentes entre <b>flexibilidade e eficiência</b>.</li>
+        <li>Em escala, os chips formam <b>toros 2D e 3D</b> ligados pelo ICI, as mesmas topologias das redes de interconexão clássicas.</li>
       </ul>
       <div class="card-insight" data-asset="insight" style="font-size:14.5px; line-height:1.65;">
         <div class="c-kicker">Fontes</div>
@@ -728,7 +820,7 @@
   <div class="footer">
     <img src="assets/ufpel-marca.svg" alt="">
     <span class="f-title">Arquitetura de TPUs</span>
-    <span class="f-page"><b>15</b> / 16</span>
+    <span class="f-page"><b>16</b> / 17</span>
   </div>
 </section>
 

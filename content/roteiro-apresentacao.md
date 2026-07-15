@@ -1,102 +1,121 @@
-# Roteiro de apresentação — Arquitetura de TPUs
+# Roteiro de apresentação: Arquitetura de TPUs
 
 **Apresentador:** Jean Reinhold · Matrícula 21101175
-**Deck:** `deliverable-assets/presentations/2026-07-15-arquitetura-de-tpus/out/deliverable.pdf` (16 slides)
-**Duração alvo:** 12 minutos (cabe em 10 acelerando as transições; 15 com perguntas)
+**Deck:** `deliverable-assets/presentations/2026-07-15-arquitetura-de-tpus/out/deliverable.pdf` (17 slides)
+**Duração alvo:** 13 minutos (dá para fazer em 11 acelerando as transições; 15 com perguntas)
+
+## O que assistir e ler antes (em ordem)
+
+1. **[CPU vs GPU vs TPU](https://www.youtube.com/watch?v=MUWAbpg1xLo)** (vídeo curto). Dá a intuição da diferença entre os três chips. É a base dos slides 4 e 6.
+2. **[An in-depth look at Google's first TPU](https://cloud.google.com/blog/products/ai-machine-learning/an-in-depth-look-at-googles-first-tensor-processing-unit-tpu)** (artigo, Google Cloud Blog). A fonte principal do deck: diagrama de blocos, array sistólico, INT8, CISC e os números de desempenho. Slides 8, 9, 10 e 15 saem daqui.
+3. **[All about AI Accelerators, com Adi Fuchs](https://www.youtube.com/watch?v=VQoyypYTz2U)** (entrevista longa). Contexto geral de aceleradores. Não precisa ver inteiro: foque nos trechos sobre TPU e dataflow, que ajudam a defender o slide 12 (Flynn).
+4. **[How to Think About TPUs](https://jax-ml.github.io/scaling-book/tpus/)** (capítulo do JAX Scaling Book). A melhor referência para a TPU moderna: TensorCore, VMEM, HBM, ICI e a topologia em toro. Slides 13 e 14.
+5. **[Google's TPU clusters explained, Lex Fridman](https://www.youtube.com/watch?v=aV0bTDKXBP8)** (clipe). Visão de datacenter e pods, bom para responder perguntas sobre escala.
+6. Opcional, se quiser ir a fundo: Jouppi et al., *In-Datacenter Performance Analysis of a Tensor Processing Unit*, ISCA 2017. É o paper por trás de tudo.
 
 ## Linha do tempo
 
 | Tempo | Slides | Bloco |
 |---|---|---|
-| 0:00 – 1:00 | 1–2 | Abertura e agenda |
-| 1:00 – 3:30 | 3–5 | Fundamentos: o que é uma TPU, CPU × GPU × TPU |
-| 3:30 – 7:00 | 6–9 | Por dentro do chip: blocos, array sistólico, eficiência |
-| 7:00 – 10:30 | 10–13 | Flynn, TPU moderna e topologia |
-| 10:30 – 12:00 | 14–16 | Desempenho, síntese e encerramento |
+| 0:00 a 1:00 | 1 e 2 | Abertura e agenda |
+| 1:00 a 4:30 | 3 a 6 | Fundamentos: TPU, redes neurais, CPU × GPU × TPU |
+| 4:30 a 8:00 | 7 a 10 | Por dentro do chip: blocos, array sistólico, eficiência |
+| 8:00 a 11:30 | 11 a 14 | Flynn, TPU moderna e conexão em toro |
+| 11:30 a 13:00 | 15 a 17 | Números, síntese e encerramento |
 
-**Regra de bolso:** ~45 s por slide de conteúdo; os divisores (3, 6, 10) são respiros de ~10 s — anuncie a seção e siga.
+Regra de bolso: uns 45 segundos por slide de conteúdo. Os divisores (3, 7, 11) são respiros de 10 segundos: anuncie a seção e siga.
 
 ## Script slide a slide
 
 ### 1 · Capa (30 s)
-> "Boa tarde. Eu sou o Jean Reinhold e hoje vou falar de um processador que faz uma aposta radical: em vez de servir para tudo, ele aposta tudo em uma única operação — multiplicar matrizes. É a TPU do Google, e a gente vai olhar para ela do ponto de vista de arquitetura de hardware."
+> "Boa tarde. Eu sou o Jean Reinhold e hoje vou falar de um processador que faz uma escolha incomum: em vez de servir para tudo, ele aposta tudo em uma única operação, que é multiplicar matrizes. É a TPU do Google, e a gente vai olhar para ela do ponto de vista de arquitetura de hardware."
 
 ### 2 · Agenda (30 s)
-> "Três blocos: primeiro o que é uma TPU e como ela se compara com CPU e GPU; depois a gente abre o chip — diagrama de blocos e o array sistólico; e por fim classificamos ela na taxonomia de Flynn e vemos como milhares de chips se conectam em topologia de toro."
+> "Três blocos: primeiro o que é uma TPU, o que uma rede neural calcula e a comparação com CPU e GPU. Depois a gente abre o chip. E no final, a classificação de Flynn e como milhares de chips se conectam em toro."
 
-### 3 · Divisor — Fundamentos (10 s)
-> "Começando pelos fundamentos: por que o Google resolveu construir um chip próprio?"
+### 3 · Divisor: Fundamentos (10 s)
+> "Começando pelo básico: por que o Google resolveu fazer um chip próprio?"
 
 ### 4 · O que é uma TPU (60 s)
-- Defina ASIC: circuito de aplicação específica — o oposto do processador de uso geral.
-- Conte a história: em 2013 o Google projetou que, se cada usuário usasse busca por voz 3 min/dia, precisaria **dobrar os datacenters**. A resposta foi um chip próprio, do projeto à produção em 15 meses (2015: Busca, Tradutor, Fotos, AlphaGo).
-- Feche com o card: troca-se generalidade por 30–80× mais desempenho por watt.
+- Defina ASIC: chip de aplicação específica, o oposto do processador de uso geral.
+- Conte a história: em 2013 o Google calculou que, se cada usuário usasse busca por voz 3 minutos por dia, precisaria dobrar os datacenters. A resposta foi um chip próprio, pronto em 15 meses e em produção desde 2015 (Busca, Tradutor, Fotos, AlphaGo).
+- Feche com o card: abre mão de rodar qualquer programa em troca de 30 a 80 vezes mais desempenho por watt.
 
-### 5 · CPU × GPU × TPU (75 s)
-- Percorra a tabela por **filosofia**, não linha a linha: "a CPU gasta 30–40% do silício decidindo *o que* executar; a TPU gasta menos de 2% — quase tudo é conta".
-- Destaque a linha de latência (determinística — sem caches nem especulação) e a linha Flynn: "guardem essa, ela volta no slide 11".
-- Regra de bolso do rodapé: CPU minimiza latência, GPU maximiza vazão, TPU maximiza matriz por joule.
+### 5 · O que uma rede neural calcula (75 s)
+- Aponte a equação: cada camada faz y = f(W·x + b). Multiplica, soma, aplica uma função simples.
+- Mostre no desenho: cada seta é um peso; as setas azuis são uma linha inteira da matriz W.
+- A conclusão que prepara o resto da apresentação: redes reais repetem essa conta bilhões de vezes, então quase todo o tempo é multiplicação de matrizes. Quem acelera essa conta, acelera tudo.
 
-### 6 · Divisor — Por dentro do chip (10 s)
-> "Vamos abrir o chip."
+### 6 · CPU × GPU × TPU (75 s)
+- Percorra a tabela por filosofia, não linha por linha: "a CPU gasta 30 a 40% do chip decidindo o que executar; a TPU gasta menos de 2%, o resto é conta".
+- Destaque a latência determinística (sem cache nem especulação) e a linha Flynn: "guardem essa, ela volta no slide 12".
+- Resumo do rodapé: CPU quer terminar rápido uma tarefa, GPU quer fazer milhares ao mesmo tempo, TPU quer o máximo de contas de matriz por watt.
 
-### 7 · Diagrama de blocos da TPU v1 (75 s)
+### 7 · Divisor: Por dentro do chip (10 s)
+> "Agora vamos abrir o chip."
+
+### 8 · Diagrama de blocos da TPU v1 (75 s)
 - Siga o fluxo com a mão: pesos descem da DRAM pela FIFO; ativações saem do host, ficam no Unified Buffer (24 MB) e entram na MXU.
-- MXU: 256×256 = 65.536 multiplicadores-acumuladores de 8 bits, 92 TeraOps/s a 700 MHz.
-- Resultados passam pelos acumuladores e pela unidade de ativação (ReLU, sigmoide) e **voltam ao buffer** — o loop é o ponto: a memória externa quase não é tocada.
+- MXU: 256 por 256, ou seja 65.536 multiplicadores de 8 bits, 92 TeraOps por segundo a 700 MHz.
+- Resultados passam pelos acumuladores e pela ativação (ReLU, sigmoide) e voltam ao buffer. O ponto é o loop: a memória externa quase não é usada.
 
-### 8 · Array sistólico (90 s) — o slide mais importante
-- Explique o nome: "sistólico" vem de sístole — os dados **pulsam** pelo chip como sangue bombeado pelo coração.
-- Mecânica: pesos são pré-carregados e ficam **estacionários**; ativações entram pela esquerda a cada ciclo; cada célula multiplica, soma e passa adiante; somas parciais descem para os acumuladores.
-- A sacada: durante toda a multiplicação **não há acesso à memória** — o dado é lido uma vez e reutilizado por centenas de células. É daí que vem a eficiência energética.
+### 9 · Array sistólico (90 s), o slide mais importante
+- Explique o nome: "sistólico" vem de sístole. Os dados pulsam pelo chip como o sangue bombeado pelo coração.
+- Mecânica: os pesos são carregados antes e ficam parados nas células; as ativações entram pela esquerda a cada ciclo; cada célula multiplica, soma e passa adiante; as somas parciais descem para os acumuladores.
+- A sacada: durante a multiplicação inteira não há acesso à memória. Cada dado é lido uma vez e reaproveitado por centenas de células. É daí que vem a eficiência energética.
 
-### 9 · Três decisões radicais (60 s)
-- INT8: quantizar de float32 para int8 dá ~25× mais multiplicadores no mesmo silício.
-- < 2% de controle: sem cache, sem previsão de desvio, sem execução fora de ordem.
-- ISA CISC de ~5 instruções: `Read_Weights`, `MatrixMultiply`, `Activate`…
-- Callout: o determinismo permite garantir resposta < 7 ms sob carga — crucial para servir usuários.
+### 10 · Três escolhas que explicam a eficiência (60 s)
+- INT8: sair de float de 32 bits para inteiro de 8 bits dá uns 25 vezes mais multiplicadores no mesmo espaço.
+- Menos de 2% de controle: sem cache, sem previsão de desvio, sem execução fora de ordem.
+- ISA CISC de 5 instruções: Read_Weights, MatrixMultiply, Activate e as de memória.
+- Callout: o determinismo permite garantir resposta em menos de 7 ms com o datacenter cheio.
 
-### 10 · Divisor — Classificação e escala (10 s)
+### 11 · Divisor: Classificação e escala (10 s)
 > "Agora a pergunta da disciplina: onde essa máquina cai na taxonomia de Flynn?"
 
-### 11 · Taxonomia de Flynn (90 s)
-- Situe os conhecidos: CPU de 1 núcleo = SISD; multicore = MIMD; GPU = SIMD (na variante SIMT).
-- A TPU: **uma** instrução (`MatrixMultiply`) sobre **65.536** dados → comportamento SIMD.
-- A polêmica (a seta tracejada): no array sistólico os dados **se transformam** ao fluir de célula em célula — um traço que lembra MISD, e é por isso que livros citam arrays sistólicos como o exemplo (contestado) de MISD. Conclusão honesta: Flynn (1966) não captura arquiteturas de dataflow; a classificação mais defensável é "SIMD com dataflow sistólico".
+### 12 · Taxonomia de Flynn (90 s)
+- Situe os conhecidos: CPU de 1 núcleo é SISD; multicore é MIMD; GPU é SIMD, na variante SIMT.
+- A TPU está no quadrante SIMD: uma instrução (MatrixMultiply) sobre 65.536 dados.
+- A seta tracejada é a parte interessante: dentro do array sistólico o dado não fica parado, ele é transformado em cadeia, célula após célula. Isso lembra MISD, e é por isso que livros citam arrays sistólicos como o exemplo (contestado) de MISD.
+- Conclusão honesta: trate a TPU como SIMD; o fluxo sistólico é o detalhe que a taxonomia de 1966 não previu.
 
-### 12 · TensorCore moderno (60 s)
-- Atualize a foto: a TPU v1 era só inferência; as atuais treinam também.
-- Blocos: HBM (memória de alta largura de banda, até 2,8 TB/s) ↔ VMEM (scratchpad ~22× mais rápido que a HBM) → MXU (128×128) + VPU (vetorial — "olha o SIMD clássico aqui dentro").
-- ICI: enlaces diretos chip a chip, que levam ao próximo slide.
+### 13 · TensorCore moderno (60 s)
+- Atualize a foto: a v1 só fazia inferência; as atuais também treinam.
+- Blocos: HBM (memória rápida, até 2,8 TB/s) conversa com a VMEM (rascunho 22 vezes mais rápido que a HBM), que alimenta a MXU e a VPU.
+- Aponte a VPU: "olha o SIMD clássico aqui dentro, para ReLU e reduções".
+- O bloco ICI liga aos vizinhos e leva ao próximo slide.
 
-### 13 · Topologia em toro (75 s)
-- Malha × toro: o wraparound corta a distância máxima pela metade — compare com as topologias de redes de interconexão vistas em aula (malha, toro, hipercubo).
-- Números de escala: v5e/v6e usam toro 2D 16×16 (256 chips); v4/v5p usam toro 3D — cada chip com 6 vizinhos, até 8.960 chips num pod v5p.
+### 14 · Conexão em toro (75 s)
+- Comece pelo topo: cada bolinha é um chip, cada linha é um enlace ICI.
+- Malha: para ir do chip A ao chip B são 6 saltos, e cada salto custa tempo.
+- Toro: as bordas se ligam de volta (as linhas tracejadas continuam do outro lado). O mesmo caminho cai para 2 saltos: a volta da linha e a volta da coluna.
+- Escala real: v5e e v6e usam toro 2D 16 por 16 (256 chips); v4 e v5p usam toro 3D, com até 8.960 chips num pod.
+- Conecte com a disciplina: são as mesmas topologias de redes de interconexão (malha, toro, hipercubo).
 
-### 14 · Desempenho (45 s)
-- Gráfico da esquerda: por watt, a TPU v1 entregou 83× a CPU e 29× a GPU contemporâneas (em inferência).
-- Direita: o pico por chip dobra a cada geração — v3 123 → v6e 918 TFLOPs bf16.
-> "Especialização paga: esse é o retorno de abrir mão da generalidade."
+### 15 · Desempenho (45 s)
+- Esquerda: por watt, a TPU v1 entregou 83 vezes a CPU e 29 vezes a GPU da época, em inferência.
+- Direita: o pico por chip praticamente dobra a cada geração, da v3 (123 TFLOPs) à v6e (918).
+> "Especializar compensou. Esse é o retorno de abrir mão da generalidade."
 
-### 15 · Síntese e fontes (45 s)
-- Releia as 4 mensagens: ASIC de matrizes · SIMD-sistólico em Flynn · CPU/GPU/TPU são pontos numa troca generalidade × eficiência · toros 2D/3D em escala.
+### 16 · Síntese e fontes (45 s)
+- Releia as 4 mensagens: chip de matrizes; SIMD com fluxo sistólico em Flynn; CPU, GPU e TPU como escolhas diferentes; toros 2D e 3D em escala.
 - Aponte as fontes para quem quiser se aprofundar.
 
-### 16 · Encerramento (15 s)
+### 17 · Encerramento (15 s)
 > "Muito obrigado. Perguntas?"
 
 ## Perguntas prováveis (e respostas de bolso)
 
-1. **"TPU substitui GPU?"** Não — GPU continua mais flexível (gráficos, HPC, modelos com operações exóticas). TPU vence quando o workload é dominado por multiplicação de matrizes densas.
-2. **"Por que INT8 não estraga o resultado?"** Inferência tolera quantização: a rede é treinada em float e convertida; a perda de acurácia costuma ser < 1% (a v1 só fazia inferência; para treino as TPUs modernas usam bfloat16).
-3. **"MISD existe de verdade?"** É o quadrante quase vazio; arrays sistólicos são o exemplo clássico citado, mas contestado — bom gancho para discutir os limites da taxonomia.
-4. **"E o barramento/PCIe não vira gargalo?"** Na v1 sim (12,5 GB/s); por isso as TPUs modernas usam ICI dedicado entre chips e HBM no pacote.
+1. **"TPU substitui GPU?"** Não. A GPU segue mais flexível (gráficos, HPC, modelos com operações incomuns). A TPU ganha quando o trabalho é dominado por multiplicação de matrizes densas.
+2. **"INT8 não estraga o resultado?"** A inferência tolera quantização: a rede é treinada em ponto flutuante e convertida depois; a perda de acurácia costuma ser menor que 1%. Para treino, as TPUs modernas usam bfloat16.
+3. **"MISD existe de verdade?"** É o quadrante quase vazio. Arrays sistólicos são o exemplo clássico citado, mas contestado. Bom gancho para discutir os limites da taxonomia.
+4. **"O PCIe não vira gargalo?"** Na v1 sim (12,5 GB/s). Por isso as TPUs modernas usam ICI dedicado entre chips e HBM dentro do pacote.
 
 ## Fontes
 
-- Google Cloud Blog — *An in-depth look at Google's first Tensor Processing Unit* (2017): <https://cloud.google.com/blog/products/ai-machine-learning/an-in-depth-look-at-googles-first-tensor-processing-unit-tpu>
-- JAX Scaling Book — *How to Think About TPUs*: <https://jax-ml.github.io/scaling-book/tpus/>
-- Vídeo — *All about AI Accelerators: GPU, TPU, Dataflow…* (com Adi Fuchs): <https://www.youtube.com/watch?v=VQoyypYTz2U>
-- Vídeo — *CPU vs GPU vs TPU*: <https://www.youtube.com/watch?v=MUWAbpg1xLo>
-- Vídeo — *Google's TPU clusters explained* (Lex Fridman Podcast): <https://www.youtube.com/watch?v=aV0bTDKXBP8>
-- Jouppi et al., *In-Datacenter Performance Analysis of a Tensor Processing Unit*, ISCA 2017 (paper por trás dos números de desempenho).
+- Google Cloud Blog: *An in-depth look at Google's first Tensor Processing Unit* (2017). <https://cloud.google.com/blog/products/ai-machine-learning/an-in-depth-look-at-googles-first-tensor-processing-unit-tpu>
+- JAX Scaling Book: *How to Think About TPUs*. <https://jax-ml.github.io/scaling-book/tpus/>
+- Vídeo: *All about AI Accelerators* (com Adi Fuchs). <https://www.youtube.com/watch?v=VQoyypYTz2U>
+- Vídeo: *CPU vs GPU vs TPU*. <https://www.youtube.com/watch?v=MUWAbpg1xLo>
+- Vídeo: *Google's TPU clusters explained* (Lex Fridman Podcast). <https://www.youtube.com/watch?v=aV0bTDKXBP8>
+- Jouppi et al., *In-Datacenter Performance Analysis of a Tensor Processing Unit*, ISCA 2017 (o paper por trás dos números).

@@ -128,15 +128,15 @@
           "profile": null,
           "content": {
             "x": 72,
-            "y": 260,
+            "y": 253,
             "width": 820,
-            "height": 248
+            "height": 262
           },
           "element": {
             "x": 72,
-            "y": 260,
+            "y": 253,
             "width": 820,
-            "height": 248
+            "height": 262
           },
           "trimmed": false
         }
@@ -224,15 +224,15 @@
           "profile": null,
           "content": {
             "x": 72,
-            "y": 196,
+            "y": 224,
             "width": 626,
-            "height": 378
+            "height": 321
           },
           "element": {
             "x": 72,
-            "y": 196,
+            "y": 224,
             "width": 626,
-            "height": 378
+            "height": 321
           },
           "trimmed": false
         },
@@ -241,13 +241,13 @@
           "profile": null,
           "content": {
             "x": 754,
-            "y": 196,
+            "y": 224,
             "width": 454,
             "height": 226
           },
           "element": {
             "x": 754,
-            "y": 196,
+            "y": 224,
             "width": 454,
             "height": 226
           },
@@ -262,6 +262,71 @@
     },
     {
       "page": 5,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "diagram",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 174,
+            "width": 620,
+            "height": 420
+          },
+          "element": {
+            "x": 72,
+            "y": 174,
+            "width": 620,
+            "height": 420
+          },
+          "trimmed": false
+        },
+        {
+          "id": "bullets",
+          "profile": null,
+          "content": {
+            "x": 754,
+            "y": 174,
+            "width": 454,
+            "height": 396
+          },
+          "element": {
+            "x": 754,
+            "y": 174,
+            "width": 454,
+            "height": 396
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 6,
       "size": {
         "width": 1280,
         "height": 720
@@ -326,7 +391,7 @@
       }
     },
     {
-      "page": 6,
+      "page": 7,
       "size": {
         "width": 1280,
         "height": 720
@@ -374,54 +439,6 @@
       }
     },
     {
-      "page": 7,
-      "size": {
-        "width": 1280,
-        "height": 720
-      },
-      "boxes": [
-        {
-          "id": "heading",
-          "profile": null,
-          "content": {
-            "x": 72,
-            "y": 88,
-            "width": 1136,
-            "height": 45
-          },
-          "element": {
-            "x": 72,
-            "y": 88,
-            "width": 1136,
-            "height": 45
-          },
-          "trimmed": false
-        },
-        {
-          "id": "diagram",
-          "profile": null,
-          "content": {
-            "x": 72,
-            "y": 184,
-            "width": 1136,
-            "height": 400
-          },
-          "element": {
-            "x": 72,
-            "y": 184,
-            "width": 1136,
-            "height": 400
-          },
-          "trimmed": false
-        }
-      ],
-      "overlaps": [],
-      "overflow": {
-        "pageScroll": null,
-        "escapes": []
-      }
-    },
-    {
       "page": 8,
       "size": {
         "width": 1280,
@@ -450,6 +467,54 @@
           "profile": null,
           "content": {
             "x": 72,
+            "y": 184,
+            "width": 1136,
+            "height": 400
+          },
+          "element": {
+            "x": 72,
+            "y": 184,
+            "width": 1136,
+            "height": 400
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 9,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "diagram",
+          "profile": null,
+          "content": {
+            "x": 72,
             "y": 161,
             "width": 1136,
             "height": 448
@@ -470,7 +535,7 @@
       }
     },
     {
-      "page": 9,
+      "page": 10,
       "size": {
         "width": 1280,
         "height": 720
@@ -535,7 +600,7 @@
       }
     },
     {
-      "page": 10,
+      "page": 11,
       "size": {
         "width": 1280,
         "height": 720
@@ -583,54 +648,6 @@
       }
     },
     {
-      "page": 11,
-      "size": {
-        "width": 1280,
-        "height": 720
-      },
-      "boxes": [
-        {
-          "id": "heading",
-          "profile": null,
-          "content": {
-            "x": 72,
-            "y": 88,
-            "width": 1136,
-            "height": 45
-          },
-          "element": {
-            "x": 72,
-            "y": 88,
-            "width": 1136,
-            "height": 45
-          },
-          "trimmed": false
-        },
-        {
-          "id": "diagram",
-          "profile": null,
-          "content": {
-            "x": 72,
-            "y": 164,
-            "width": 1136,
-            "height": 440
-          },
-          "element": {
-            "x": 72,
-            "y": 164,
-            "width": 1136,
-            "height": 440
-          },
-          "trimmed": false
-        }
-      ],
-      "overlaps": [],
-      "overflow": {
-        "pageScroll": null,
-        "escapes": []
-      }
-    },
-    {
       "page": 12,
       "size": {
         "width": 1280,
@@ -659,15 +676,32 @@
           "profile": null,
           "content": {
             "x": 72,
-            "y": 170,
-            "width": 1136,
-            "height": 428
+            "y": 169,
+            "width": 620,
+            "height": 430
           },
           "element": {
             "x": 72,
-            "y": 170,
-            "width": 1136,
-            "height": 428
+            "y": 169,
+            "width": 620,
+            "height": 430
+          },
+          "trimmed": false
+        },
+        {
+          "id": "bullets",
+          "profile": null,
+          "content": {
+            "x": 754,
+            "y": 169,
+            "width": 454,
+            "height": 252
+          },
+          "element": {
+            "x": 754,
+            "y": 169,
+            "width": 454,
+            "height": 252
           },
           "trimmed": false
         }
@@ -707,15 +741,15 @@
           "profile": null,
           "content": {
             "x": 72,
-            "y": 169,
+            "y": 170,
             "width": 1136,
-            "height": 430
+            "height": 428
           },
           "element": {
             "x": 72,
-            "y": 169,
+            "y": 170,
             "width": 1136,
-            "height": 430
+            "height": 428
           },
           "trimmed": false
         }
@@ -728,6 +762,54 @@
     },
     {
       "page": 14,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "diagram",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 167,
+            "width": 1136,
+            "height": 434
+          },
+          "element": {
+            "x": 72,
+            "y": 167,
+            "width": 1136,
+            "height": 434
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 15,
       "size": {
         "width": 1280,
         "height": 720
@@ -792,7 +874,7 @@
       }
     },
     {
-      "page": 15,
+      "page": 16,
       "size": {
         "width": 1280,
         "height": 720
@@ -820,15 +902,15 @@
           "profile": null,
           "content": {
             "x": 72,
-            "y": 210,
+            "y": 224,
             "width": 626,
-            "height": 349
+            "height": 321
           },
           "element": {
             "x": 72,
-            "y": 210,
+            "y": 224,
             "width": 626,
-            "height": 349
+            "height": 321
           },
           "trimmed": false
         },
@@ -837,13 +919,13 @@
           "profile": null,
           "content": {
             "x": 754,
-            "y": 210,
+            "y": 224,
             "width": 454,
             "height": 271
           },
           "element": {
             "x": 754,
-            "y": 210,
+            "y": 224,
             "width": 454,
             "height": 271
           },
@@ -857,7 +939,7 @@
       }
     },
     {
-      "page": 16,
+      "page": 17,
       "size": {
         "width": 1280,
         "height": 720
