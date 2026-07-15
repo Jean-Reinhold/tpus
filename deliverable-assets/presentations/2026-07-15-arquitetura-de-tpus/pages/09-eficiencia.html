@@ -1,0 +1,36 @@
+<!-- ======================================================================
+     SLIDE 9 — FONTES DE EFICIÊNCIA (stat trio)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Por dentro do chip</div>
+    <h2 class="heading" data-asset="heading">Três decisões de projeto <span class="em">radicais</span></h2>
+    <div class="body">
+    <div class="stats" data-asset="stats">
+      <div class="stat">
+        <div class="s-label">Quantização</div>
+        <div class="s-value">INT8</div>
+        <div class="s-note">Inteiros de 8 bits no lugar de ponto flutuante de 32 bits: ~25× mais multiplicadores no mesmo silício.</div>
+      </div>
+      <div class="stat">
+        <div class="s-label">Lógica de controle</div>
+        <div class="s-value">&lt; 2%</div>
+        <div class="s-note">Do die. Sem caches, sem previsão de desvio, sem execução fora de ordem — quase todo o chip é datapath.</div>
+      </div>
+      <div class="stat">
+        <div class="s-label">ISA minimalista (CISC)</div>
+        <div class="s-value">5</div>
+        <div class="s-note">Instruções de alto nível fazem quase tudo: Read_Weights, MatrixMultiply, Activate, Read/Write_Host_Memory.</div>
+      </div>
+    </div>
+    <div class="callout" data-asset="callout" style="margin-top:64px;">
+      <b>Determinismo:</b> sem especulação, a latência é previsível — o Google consegue garantir respostas em menos de 7 ms mesmo com o datacenter sob carga.
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Arquitetura de TPUs</span>
+    <span class="f-page"><b>9</b> / 16</span>
+  </div>
+</section>

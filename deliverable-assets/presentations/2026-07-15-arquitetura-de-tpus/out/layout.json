@@ -1,0 +1,925 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "marca",
+          "profile": null,
+          "content": {
+            "x": 97,
+            "y": 79,
+            "width": 113,
+            "height": 51
+          },
+          "element": {
+            "x": 72,
+            "y": 60,
+            "width": 163,
+            "height": 88
+          },
+          "trimmed": true
+        },
+        {
+          "id": "kicker-chip",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 191,
+            "width": 523,
+            "height": 30
+          },
+          "element": {
+            "x": 72,
+            "y": 191,
+            "width": 523,
+            "height": 30
+          },
+          "trimmed": false
+        },
+        {
+          "id": "title",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 243,
+            "width": 900,
+            "height": 233
+          },
+          "element": {
+            "x": 72,
+            "y": 243,
+            "width": 900,
+            "height": 233
+          },
+          "trimmed": false
+        },
+        {
+          "id": "subtitle",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 496,
+            "width": 900,
+            "height": 65
+          },
+          "element": {
+            "x": 72,
+            "y": 496,
+            "width": 900,
+            "height": 65
+          },
+          "trimmed": false
+        },
+        {
+          "id": "meta",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 605,
+            "width": 1136,
+            "height": 19
+          },
+          "element": {
+            "x": 72,
+            "y": 605,
+            "width": 1136,
+            "height": 19
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 2,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "agenda",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 260,
+            "width": 820,
+            "height": 248
+          },
+          "element": {
+            "x": 72,
+            "y": 260,
+            "width": 820,
+            "height": 248
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 3,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "section-number",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 141,
+            "width": 1136,
+            "height": 200
+          },
+          "element": {
+            "x": 72,
+            "y": 141,
+            "width": 1136,
+            "height": 200
+          },
+          "trimmed": false
+        },
+        {
+          "id": "section-title",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 389,
+            "width": 1136,
+            "height": 116
+          },
+          "element": {
+            "x": 72,
+            "y": 389,
+            "width": 1136,
+            "height": 116
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 4,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "bullets",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 196,
+            "width": 626,
+            "height": 378
+          },
+          "element": {
+            "x": 72,
+            "y": 196,
+            "width": 626,
+            "height": 378
+          },
+          "trimmed": false
+        },
+        {
+          "id": "insight",
+          "profile": null,
+          "content": {
+            "x": 754,
+            "y": 196,
+            "width": 454,
+            "height": 226
+          },
+          "element": {
+            "x": 754,
+            "y": 196,
+            "width": 454,
+            "height": 226
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 5,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "table",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 163,
+            "width": 1136,
+            "height": 323
+          },
+          "element": {
+            "x": 72,
+            "y": 163,
+            "width": 1136,
+            "height": 323
+          },
+          "trimmed": false
+        },
+        {
+          "id": "callout",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 518,
+            "width": 1136,
+            "height": 87
+          },
+          "element": {
+            "x": 72,
+            "y": 518,
+            "width": 1136,
+            "height": 87
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 6,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "section-number",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 170,
+            "width": 1136,
+            "height": 200
+          },
+          "element": {
+            "x": 72,
+            "y": 170,
+            "width": 1136,
+            "height": 200
+          },
+          "trimmed": false
+        },
+        {
+          "id": "section-title",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 418,
+            "width": 1136,
+            "height": 58
+          },
+          "element": {
+            "x": 72,
+            "y": 418,
+            "width": 1136,
+            "height": 58
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 7,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "diagram",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 184,
+            "width": 1136,
+            "height": 400
+          },
+          "element": {
+            "x": 72,
+            "y": 184,
+            "width": 1136,
+            "height": 400
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 8,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "diagram",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 161,
+            "width": 1136,
+            "height": 448
+          },
+          "element": {
+            "x": 72,
+            "y": 161,
+            "width": 1136,
+            "height": 448
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 9,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "stats",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 222,
+            "width": 1136,
+            "height": 175
+          },
+          "element": {
+            "x": 72,
+            "y": 222,
+            "width": 1136,
+            "height": 175
+          },
+          "trimmed": false
+        },
+        {
+          "id": "callout",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 460,
+            "width": 1136,
+            "height": 87
+          },
+          "element": {
+            "x": 72,
+            "y": 460,
+            "width": 1136,
+            "height": 87
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 10,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "section-number",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 170,
+            "width": 1136,
+            "height": 200
+          },
+          "element": {
+            "x": 72,
+            "y": 170,
+            "width": 1136,
+            "height": 200
+          },
+          "trimmed": false
+        },
+        {
+          "id": "section-title",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 418,
+            "width": 1136,
+            "height": 58
+          },
+          "element": {
+            "x": 72,
+            "y": 418,
+            "width": 1136,
+            "height": 58
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 11,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "diagram",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 164,
+            "width": 1136,
+            "height": 440
+          },
+          "element": {
+            "x": 72,
+            "y": 164,
+            "width": 1136,
+            "height": 440
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 12,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "diagram",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 170,
+            "width": 1136,
+            "height": 428
+          },
+          "element": {
+            "x": 72,
+            "y": 170,
+            "width": 1136,
+            "height": 428
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 13,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "diagram",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 169,
+            "width": 1136,
+            "height": 430
+          },
+          "element": {
+            "x": 72,
+            "y": 169,
+            "width": 1136,
+            "height": 430
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 14,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "chart-perf-watt",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 198,
+            "width": 540,
+            "height": 372
+          },
+          "element": {
+            "x": 72,
+            "y": 198,
+            "width": 540,
+            "height": 372
+          },
+          "trimmed": false
+        },
+        {
+          "id": "chart-geracoes",
+          "profile": null,
+          "content": {
+            "x": 668,
+            "y": 198,
+            "width": 540,
+            "height": 356
+          },
+          "element": {
+            "x": 668,
+            "y": 198,
+            "width": 540,
+            "height": 356
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 15,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "heading",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "element": {
+            "x": 72,
+            "y": 88,
+            "width": 1136,
+            "height": 45
+          },
+          "trimmed": false
+        },
+        {
+          "id": "bullets",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 210,
+            "width": 626,
+            "height": 349
+          },
+          "element": {
+            "x": 72,
+            "y": 210,
+            "width": 626,
+            "height": 349
+          },
+          "trimmed": false
+        },
+        {
+          "id": "insight",
+          "profile": null,
+          "content": {
+            "x": 754,
+            "y": 210,
+            "width": 454,
+            "height": 271
+          },
+          "element": {
+            "x": 754,
+            "y": 210,
+            "width": 454,
+            "height": 271
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 16,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "marca",
+          "profile": null,
+          "content": {
+            "x": 95,
+            "y": 77,
+            "width": 103,
+            "height": 46
+          },
+          "element": {
+            "x": 72,
+            "y": 60,
+            "width": 149,
+            "height": 80
+          },
+          "trimmed": true
+        },
+        {
+          "id": "closing-title",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 435,
+            "width": 1136,
+            "height": 95
+          },
+          "element": {
+            "x": 72,
+            "y": 435,
+            "width": 1136,
+            "height": 95
+          },
+          "trimmed": false
+        },
+        {
+          "id": "contact",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 566,
+            "width": 1136,
+            "height": 58
+          },
+          "element": {
+            "x": 72,
+            "y": 566,
+            "width": 1136,
+            "height": 58
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    }
+  ]
+}

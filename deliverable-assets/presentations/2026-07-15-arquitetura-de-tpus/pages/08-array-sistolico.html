@@ -1,0 +1,88 @@
+<!-- ======================================================================
+     SLIDE 8 — ARRAY SISTÓLICO
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Arquitetura</div>
+    <h2 class="heading" data-asset="heading">O coração do chip: o <span class="em">array sistólico</span></h2>
+    <div class="body">
+    <svg class="diagram" data-asset="diagram" width="1136" height="448" viewBox="0 0 1136 448">
+      <defs>
+        <marker id="arrow-blue-2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#00408F"/>
+        </marker>
+        <marker id="arrow-ink-2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#111111"/>
+        </marker>
+      </defs>
+
+      <!-- pesos entram por cima e ficam estacionários -->
+      <text class="d-label" x="620" y="14" text-anchor="middle">pesos pré-carregados (ficam estacionários nas células)</text>
+      <line class="d-edge" x1="460" y1="22" x2="460" y2="62" marker-end="url(#arrow-ink-2)"/>
+      <line class="d-edge" x1="620" y1="22" x2="620" y2="62" marker-end="url(#arrow-ink-2)"/>
+      <line class="d-edge" x1="780" y1="22" x2="780" y2="62" marker-end="url(#arrow-ink-2)"/>
+
+      <!-- ativações entram pela esquerda -->
+      <text class="d-label" x="185" y="52">ativações</text>
+      <text class="d-label" x="298" y="112" text-anchor="end">x₁</text>
+      <text class="d-label" x="298" y="212" text-anchor="end">x₂</text>
+      <text class="d-label" x="298" y="312" text-anchor="end">x₃</text>
+      <line class="d-edge" x1="306" y1="105" x2="392" y2="105" stroke="#00408F" marker-end="url(#arrow-blue-2)"/>
+      <line class="d-edge" x1="306" y1="205" x2="392" y2="205" stroke="#00408F" marker-end="url(#arrow-blue-2)"/>
+      <line class="d-edge" x1="306" y1="305" x2="392" y2="305" stroke="#00408F" marker-end="url(#arrow-blue-2)"/>
+
+      <!-- grade 3×3 de células MAC -->
+      <rect class="d-node" x="400" y="70" width="120" height="70" rx="12"/><text x="460" y="112" text-anchor="middle">MAC</text>
+      <rect class="d-node" x="560" y="70" width="120" height="70" rx="12"/><text x="620" y="112" text-anchor="middle">MAC</text>
+      <rect class="d-node" x="720" y="70" width="120" height="70" rx="12"/><text x="780" y="112" text-anchor="middle">MAC</text>
+      <rect class="d-node" x="400" y="170" width="120" height="70" rx="12"/><text x="460" y="212" text-anchor="middle">MAC</text>
+      <rect class="d-node" x="560" y="170" width="120" height="70" rx="12"/><text x="620" y="212" text-anchor="middle">MAC</text>
+      <rect class="d-node" x="720" y="170" width="120" height="70" rx="12"/><text x="780" y="212" text-anchor="middle">MAC</text>
+      <rect class="d-node" x="400" y="270" width="120" height="70" rx="12"/><text x="460" y="312" text-anchor="middle">MAC</text>
+      <rect class="d-node" x="560" y="270" width="120" height="70" rx="12"/><text x="620" y="312" text-anchor="middle">MAC</text>
+      <rect class="d-node" x="720" y="270" width="120" height="70" rx="12"/><text x="780" y="312" text-anchor="middle">MAC</text>
+
+      <!-- fluxo horizontal (ativações) -->
+      <line class="d-edge" x1="524" y1="105" x2="552" y2="105" stroke="#00408F" marker-end="url(#arrow-blue-2)"/>
+      <line class="d-edge" x1="684" y1="105" x2="712" y2="105" stroke="#00408F" marker-end="url(#arrow-blue-2)"/>
+      <line class="d-edge" x1="524" y1="205" x2="552" y2="205" stroke="#00408F" marker-end="url(#arrow-blue-2)"/>
+      <line class="d-edge" x1="684" y1="205" x2="712" y2="205" stroke="#00408F" marker-end="url(#arrow-blue-2)"/>
+      <line class="d-edge" x1="524" y1="305" x2="552" y2="305" stroke="#00408F" marker-end="url(#arrow-blue-2)"/>
+      <line class="d-edge" x1="684" y1="305" x2="712" y2="305" stroke="#00408F" marker-end="url(#arrow-blue-2)"/>
+
+      <!-- fluxo vertical (somas parciais) -->
+      <line class="d-edge" x1="460" y1="144" x2="460" y2="166" marker-end="url(#arrow-ink-2)"/>
+      <line class="d-edge" x1="620" y1="144" x2="620" y2="166" marker-end="url(#arrow-ink-2)"/>
+      <line class="d-edge" x1="780" y1="144" x2="780" y2="166" marker-end="url(#arrow-ink-2)"/>
+      <line class="d-edge" x1="460" y1="244" x2="460" y2="266" marker-end="url(#arrow-ink-2)"/>
+      <line class="d-edge" x1="620" y1="244" x2="620" y2="266" marker-end="url(#arrow-ink-2)"/>
+      <line class="d-edge" x1="780" y1="244" x2="780" y2="266" marker-end="url(#arrow-ink-2)"/>
+      <line class="d-edge" x1="460" y1="344" x2="460" y2="364" marker-end="url(#arrow-ink-2)"/>
+      <line class="d-edge" x1="620" y1="344" x2="620" y2="364" marker-end="url(#arrow-ink-2)"/>
+      <line class="d-edge" x1="780" y1="344" x2="780" y2="364" marker-end="url(#arrow-ink-2)"/>
+
+      <!-- acumuladores -->
+      <rect class="d-node-tile" x="410" y="368" width="100" height="42" rx="12"/><text x="460" y="396" text-anchor="middle">Σ</text>
+      <rect class="d-node-tile" x="570" y="368" width="100" height="42" rx="12"/><text x="620" y="396" text-anchor="middle">Σ</text>
+      <rect class="d-node-tile" x="730" y="368" width="100" height="42" rx="12"/><text x="780" y="396" text-anchor="middle">Σ</text>
+      <text class="d-label" x="620" y="438" text-anchor="middle">somas parciais descem para os acumuladores</text>
+
+      <!-- anotações à direita -->
+      <text class="d-label" x="880" y="96">Cada célula multiplica, soma e</text>
+      <text class="d-label" x="880" y="114">passa o resultado ao vizinho —</text>
+      <text class="d-label" x="880" y="132">sem voltar à memória.</text>
+      <text class="d-label" x="880" y="196">Ativações fluem para a direita;</text>
+      <text class="d-label" x="880" y="214">somas parciais descem.</text>
+      <text class="d-label" x="880" y="278">“Sistólico”: os dados pulsam pelo</text>
+      <text class="d-label" x="880" y="296">chip como o sangue bombeado</text>
+      <text class="d-label" x="880" y="314">pelo coração — na v1, uma grade</text>
+      <text class="d-label" x="880" y="332">de 256 × 256 células.</text>
+    </svg>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Arquitetura de TPUs</span>
+    <span class="f-page"><b>8</b> / 16</span>
+  </div>
+</section>
