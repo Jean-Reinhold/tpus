@@ -11,16 +11,16 @@
           "id": "marca",
           "profile": null,
           "content": {
-            "x": 92,
-            "y": 75,
-            "width": 93,
-            "height": 41
+            "x": 97,
+            "y": 79,
+            "width": 113,
+            "height": 51
           },
           "element": {
             "x": 72,
             "y": 60,
-            "width": 134,
-            "height": 72
+            "width": 163,
+            "height": 88
           },
           "trimmed": true
         },
@@ -771,16 +771,16 @@
           "id": "marca",
           "profile": null,
           "content": {
-            "x": 90,
-            "y": 74,
-            "width": 82,
-            "height": 37
+            "x": 95,
+            "y": 77,
+            "width": 103,
+            "height": 46
           },
           "element": {
             "x": 72,
             "y": 60,
-            "width": 119,
-            "height": 64
+            "width": 149,
+            "height": 80
           },
           "trimmed": true
         },

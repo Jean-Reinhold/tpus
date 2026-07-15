@@ -16,7 +16,7 @@
       "size": { "width": 1064, "height": 473 },
       "alpha": { "profile": "cutout" },
       "description": "Official colored UFPel marca: circular escudo (deep blue with light-blue rays, orange pelota, green waves, torch with red flame) + vertical fio separador + 'UFPEL' sigla in deep blue Gotham Bold. Transparent background. PNG twin: static/ufpel-marca.png.",
-      "placement": "LIGHT SURFACES ONLY — the identity manual explicitly forbids the colored marca on dark or textured backgrounds. Content-slide footers (26-32px tall) and document headers (7-8mm tall). Never recolor, outline, shadow, rotate, distort, or frame; clearance around it of at least the escudo-to-fio gap. Validate: legible, unmodified, on white/pale surface only, not overlapping content."
+      "placement": "LIGHT SURFACES ONLY — the identity manual explicitly forbids the colored marca on dark or textured backgrounds. Content-slide footers (34-42px tall) and document headers (8-10mm tall). Never recolor, outline, shadow, rotate, distort, or frame; clearance around it of at least the escudo-to-fio gap. Validate: legible, unmodified, on white/pale surface only, not overlapping content."
     },
     {
       "id": "marca-white",
@@ -24,7 +24,7 @@
       "size": { "width": 1064, "height": 473 },
       "alpha": { "profile": "cutout" },
       "description": "White traço (negativo) version of the marca: escudo line-art + fio + UFPEL sigla, all in solid white. Invisible on white — dark surfaces only.",
-      "placement": "Dark surfaces only (covers, dividers, closings, dark-slide footers). Top-left on hero pages, height 56-72px (slides) / 15-18mm (documents). Footer use: 24-28px tall. Same integrity vetoes as the colored marca. Validate: legible, unmodified, correct corner, not overlapping content."
+      "placement": "Dark surfaces only (covers, dividers, closings, dark-slide footers). Top-left on hero pages, height 80-96px (slides) / 18-24mm (documents). Footer use: 34-42px tall. Same integrity vetoes as the colored marca. Validate: legible, unmodified, correct corner, not overlapping content."
     },
     {
       "id": "escudo",

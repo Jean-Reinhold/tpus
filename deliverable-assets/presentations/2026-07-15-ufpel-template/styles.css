@@ -93,7 +93,7 @@ body {
   display: flex; align-items: center; gap: 16px;
   font-size: 12px; color: var(--ufpel-muted);
 }
-.footer img { height: 30px; }
+.footer img { height: 38px; }
 .footer .f-title { flex: 1; text-align: center; }
 .footer .f-page b { color: var(--ufpel-ink); font-weight: 600; }
 .slide.dark .footer .f-page b { color: var(--ufpel-white); }

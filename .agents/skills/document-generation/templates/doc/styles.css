@@ -70,7 +70,7 @@ body { background: #3A3D46; font-family: 'Montserrat', sans-serif; -webkit-font-
   font-size: 8.5pt; color: var(--ufpel-muted);
   border-bottom: 0.6pt solid #E3E5F0; padding-bottom: 3mm;
 }
-.pg-header img { height: 7mm; }
+.pg-header img { height: 9mm; }
 .pg-footer {
   position: absolute; bottom: 10mm; left: 20mm; right: 20mm; z-index: 40;
   display: flex; align-items: center; font-size: 8.5pt; color: var(--ufpel-muted);
