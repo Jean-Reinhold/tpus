@@ -1,7 +1,106 @@
 {
   "pages": [
     {
-      "page": 13,
+      "page": 1,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "marca",
+          "profile": null,
+          "content": {
+            "x": 92,
+            "y": 75,
+            "width": 93,
+            "height": 41
+          },
+          "element": {
+            "x": 72,
+            "y": 60,
+            "width": 134,
+            "height": 72
+          },
+          "trimmed": true
+        },
+        {
+          "id": "kicker-chip",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 223,
+            "width": 263,
+            "height": 30
+          },
+          "element": {
+            "x": 72,
+            "y": 223,
+            "width": 263,
+            "height": 30
+          },
+          "trimmed": false
+        },
+        {
+          "id": "title",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 275,
+            "width": 860,
+            "height": 233
+          },
+          "element": {
+            "x": 72,
+            "y": 275,
+            "width": 860,
+            "height": 233
+          },
+          "trimmed": false
+        },
+        {
+          "id": "subtitle",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 528,
+            "width": 860,
+            "height": 33
+          },
+          "element": {
+            "x": 72,
+            "y": 528,
+            "width": 860,
+            "height": 33
+          },
+          "trimmed": false
+        },
+        {
+          "id": "meta",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 605,
+            "width": 1136,
+            "height": 19
+          },
+          "element": {
+            "x": 72,
+            "y": 605,
+            "width": 1136,
+            "height": 19
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 4,
       "size": {
         "width": 1280,
         "height": 720
@@ -25,36 +124,101 @@
           "trimmed": false
         },
         {
-          "id": "chart-dark",
+          "id": "stats",
           "profile": null,
           "content": {
             "x": 72,
-            "y": 201,
-            "width": 626,
-            "height": 366
+            "y": 203,
+            "width": 1136,
+            "height": 229
           },
           "element": {
             "x": 72,
-            "y": 201,
-            "width": 626,
-            "height": 366
+            "y": 203,
+            "width": 1136,
+            "height": 229
           },
           "trimmed": false
         },
         {
-          "id": "bullets",
+          "id": "callout",
           "profile": null,
           "content": {
-            "x": 754,
-            "y": 201,
-            "width": 454,
-            "height": 150
+            "x": 72,
+            "y": 504,
+            "width": 1136,
+            "height": 62
           },
           "element": {
-            "x": 754,
-            "y": 201,
-            "width": 454,
-            "height": 150
+            "x": 72,
+            "y": 504,
+            "width": 1136,
+            "height": 62
+          },
+          "trimmed": false
+        }
+      ],
+      "overlaps": [],
+      "overflow": {
+        "pageScroll": null,
+        "escapes": []
+      }
+    },
+    {
+      "page": 14,
+      "size": {
+        "width": 1280,
+        "height": 720
+      },
+      "boxes": [
+        {
+          "id": "marca",
+          "profile": null,
+          "content": {
+            "x": 90,
+            "y": 74,
+            "width": 82,
+            "height": 37
+          },
+          "element": {
+            "x": 72,
+            "y": 60,
+            "width": 119,
+            "height": 64
+          },
+          "trimmed": true
+        },
+        {
+          "id": "closing-title",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 435,
+            "width": 1136,
+            "height": 95
+          },
+          "element": {
+            "x": 72,
+            "y": 435,
+            "width": 1136,
+            "height": 95
+          },
+          "trimmed": false
+        },
+        {
+          "id": "contact",
+          "profile": null,
+          "content": {
+            "x": 72,
+            "y": 566,
+            "width": 1136,
+            "height": 58
+          },
+          "element": {
+            "x": 72,
+            "y": 566,
+            "width": 1136,
+            "height": 58
           },
           "trimmed": false
         }

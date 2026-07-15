@@ -27,7 +27,7 @@ LIGHT CONTENT SLIDE                       DARK HERO SLIDE (title/divider/closing
 - `.body` wraps the main payload of a content slide and vertically centers
   it between heading and footer. ALWAYS use it — top-hugging content with a
   dead bottom half is the #1 amateur tell.
-- Footer (content slides only): colored marca left (26px tall), deck title
+- Footer (content slides only): colored marca left (30px tall), deck title
   centered muted, `n / N` right. Hero slides carry no footer.
 - The light-slide flow-line anchor (top-right) is baked into
   `.slide:not(.dark)::after` — don't add competing decorations near it.
