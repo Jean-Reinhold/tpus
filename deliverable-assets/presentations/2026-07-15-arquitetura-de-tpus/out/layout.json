@@ -511,19 +511,19 @@
           "trimmed": false
         },
         {
-          "id": "chart-matmul",
+          "id": "diagram-matmul",
           "profile": null,
           "content": {
             "x": 72,
             "y": 161,
             "width": 540,
-            "height": 372
+            "height": 291
           },
           "element": {
             "x": 72,
             "y": 161,
             "width": 540,
-            "height": 372
+            "height": 291
           },
           "trimmed": false
         },
