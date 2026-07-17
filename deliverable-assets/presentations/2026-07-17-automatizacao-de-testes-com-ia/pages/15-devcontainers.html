@@ -1,0 +1,37 @@
+<!-- ======================================================================
+     SLIDE 15 - DEV CONTAINERS (code + bullets)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Dev Containers</div>
+    <h2 class="heading" data-asset="heading">O ambiente inteiro <span class="em">como código</span></h2>
+    <div class="body">
+    <div class="cols wide-left">
+      <div class="code" data-asset="code">
+<span class="tok-c">// .devcontainer/devcontainer.json (containers.dev)</span>
+{
+  <span class="tok-s">"name"</span>: <span class="tok-s">"loja-api"</span>,
+  <span class="tok-s">"dockerComposeFile"</span>: <span class="tok-s">"docker-compose.yml"</span>,
+  <span class="tok-s">"service"</span>: <span class="tok-s">"api"</span>,          <span class="tok-c">// + postgres, kafka, redis</span>
+  <span class="tok-s">"features"</span>: {
+    <span class="tok-s">"ghcr.io/devcontainers/features/java:1"</span>: {}
+  },
+  <span class="tok-s">"forwardPorts"</span>: [<span class="tok-k">8080</span>, <span class="tok-k">5432</span>],
+  <span class="tok-s">"postCreateCommand"</span>: <span class="tok-s">"mvn -q verify"</span>
+}
+</div>
+      <ul class="bullets" data-asset="bullets" style="font-size:17px;">
+        <li>Especificação aberta (<b>containers.dev</b>): JDK, CLI, serviços do compose, tudo descrito e versionado no repositório.</li>
+        <li>Funciona no VS Code, no GitHub Codespaces e via <b>devcontainer CLI</b> no CI: dev, agente e pipeline entram no mesmo container.</li>
+        <li>Simular a infra de integração era <b>overhead de dias</b>: versões, portas, seeds. A IA escreve e ajusta esse arquivo em minutos.</li>
+        <li>Com o custo caindo, ambiente efêmero fiel por branch/PR vira o padrão, pronto para o agente testar integração de verdade.</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>15</b> / 30</span>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+<!-- ======================================================================
+     SLIDE 7 - AMBIENTE REPRODUTÍVEL (Docker + CI diagram)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Ambiente</div>
+    <h2 class="heading" data-asset="heading">Se não roda no <span class="em">container</span>, não conta</h2>
+    <div class="body">
+    <svg class="diagram" data-asset="diagram" width="1136" height="270" viewBox="0 0 1136 270">
+      <defs>
+        <marker id="arrow-ink7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#111111"/>
+        </marker>
+      </defs>
+      <path class="d-flow" d="M0 240 C 220 240 300 205 470 205 S 760 240 1136 230"/>
+      <rect class="d-node-tile" x="10" y="70" width="200" height="90" rx="14"/>
+      <text x="110" y="108" text-anchor="middle">Dev + agente</text>
+      <text class="d-label" x="110" y="130" text-anchor="middle">código + testes</text>
+
+      <rect class="d-node" x="300" y="70" width="200" height="90" rx="14"/>
+      <text x="400" y="108" text-anchor="middle">CI</text>
+      <text class="d-label" x="400" y="130" text-anchor="middle">GitHub Actions</text>
+
+      <rect class="d-node-black" x="590" y="58" width="250" height="114" rx="16"/>
+      <text class="on-dark" x="715" y="98" text-anchor="middle">Container Docker</text>
+      <text class="d-label" x="715" y="122" text-anchor="middle" style="fill:#B5DCF1">imagem versionada</text>
+      <text class="d-label" x="715" y="142" text-anchor="middle" style="fill:#B5DCF1">JUnit 5 · Maven · JaCoCo</text>
+
+      <rect class="d-node-tile" x="930" y="70" width="196" height="90" rx="14"/>
+      <text x="1028" y="108" text-anchor="middle">Gate de merge</text>
+      <text class="d-label" x="1028" y="130" text-anchor="middle">relatório + status</text>
+
+      <line class="d-edge" x1="210" y1="115" x2="292" y2="115" marker-end="url(#arrow-ink7)"/>
+      <text class="d-label" x="251" y="102" text-anchor="middle">git push</text>
+      <line class="d-edge" x1="500" y1="115" x2="582" y2="115" marker-end="url(#arrow-ink7)"/>
+      <text class="d-label" x="541" y="102" text-anchor="middle">docker run</text>
+      <line class="d-edge" x1="840" y1="115" x2="922" y2="115" marker-end="url(#arrow-ink7)"/>
+      <text class="d-label" x="881" y="102" text-anchor="middle">resultado</text>
+    </svg>
+    <div class="callout" data-asset="callout" style="margin-top:32px;">
+      <b>Mesma imagem em todo lugar:</b> na máquina do dev, na do agente e no CI. “Funciona na minha máquina” deixa de ser argumento, e o agente pode rodar e gerar testes sozinho sem quebrar nada fora do container.
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>7</b> / 30</span>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<!-- ======================================================================
+     SLIDE 24 - TRÊS ABORDAGENS (table + callout)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Três abordagens</div>
+    <h2 class="heading" data-asset="heading">Como um agente <span class="em">gera slides</span>?</h2>
+    <div class="body">
+    <table class="table" data-asset="table" style="font-size:15px;">
+      <thead>
+        <tr><th style="width:22%;">Abordagem</th><th style="width:30%;">Como funciona</th><th style="width:22%;">Resultado</th><th>Limite</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Modelo de imagem (vanilla)</td><td>Prompt → imagem pronta do slide</td><td>Bonito de longe</td><td>Texto borrado, nada editável, nada verificável</td></tr>
+        <tr><td>Preencher template</td><td>LLM despeja texto em caixas fixas</td><td>Consistente e rápido</td><td>Genérico: o modelo nunca <b>vê</b> o que produziu</td></tr>
+        <tr><td class="stat-cell">Harness resourceful<br>(o que fizemos)</td><td>HTML + render + checagem por visão, em loop</td><td class="stat-cell">Slide validado pixel a pixel</td><td>Exige construir o harness (uma vez)</td></tr>
+      </tbody>
+    </table>
+    <div class="callout success" data-asset="callout" style="margin-top:36px;">
+      <b>A diferença não é o modelo:</b> é a infraestrutura de verificação em volta dele. O mesmo agente, sem o harness, produz a segunda linha.
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>24</b> / 30</span>
+  </div>
+</section>

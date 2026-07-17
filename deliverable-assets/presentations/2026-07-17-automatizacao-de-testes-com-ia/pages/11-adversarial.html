@@ -1,0 +1,50 @@
+<!-- ======================================================================
+     SLIDE 11 - CHECAGEM ADVERSARIAL (diagram)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Confiança</div>
+    <h2 class="heading" data-asset="heading">Quem <span class="em">testa os testes</span>?</h2>
+    <div class="body">
+    <svg class="diagram" data-asset="diagram" width="1136" height="330" viewBox="0 0 1136 330">
+      <defs>
+        <marker id="arrow-ink11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#111111"/>
+        </marker>
+        <marker id="arrow-blue11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#00408F"/>
+        </marker>
+      </defs>
+      <rect class="d-node-tile" x="20" y="60" width="230" height="96" rx="14"/>
+      <text x="135" y="100" text-anchor="middle">Agente gerador</text>
+      <text class="d-label" x="135" y="122" text-anchor="middle">escreve os testes</text>
+
+      <rect class="d-node" x="360" y="60" width="230" height="96" rx="14"/>
+      <text x="475" y="100" text-anchor="middle">Suíte de testes</text>
+      <text class="d-label" x="475" y="122" text-anchor="middle">JUnit · CI · cobertura</text>
+
+      <rect class="d-node-black" x="700" y="46" width="270" height="124" rx="16"/>
+      <text class="on-dark" x="835" y="86" text-anchor="middle">Agente adversarial</text>
+      <text class="d-label" x="835" y="110" text-anchor="middle" style="fill:#B5DCF1">injeta bugs de propósito</text>
+      <text class="d-label" x="835" y="130" text-anchor="middle" style="fill:#B5DCF1">caça asserts vazios</text>
+      <text class="d-label" x="835" y="150" text-anchor="middle" style="fill:#B5DCF1">pergunta: testa a coisa certa?</text>
+
+      <line class="d-edge" x1="250" y1="108" x2="352" y2="108" marker-end="url(#arrow-ink11)"/>
+      <line class="d-edge" x1="590" y1="108" x2="692" y2="108" marker-end="url(#arrow-ink11)"/>
+      <text class="d-label" x="641" y="95" text-anchor="middle">audita</text>
+
+      <!-- feedback -->
+      <path class="d-edge-dash" d="M835 170 L 835 250 L 135 250 L 135 164" marker-end="url(#arrow-blue11)" style="stroke:#00408F"/>
+      <text class="d-label" x="485" y="238" text-anchor="middle" style="fill:#00408F">teste fraco volta com prova: “este bug passou despercebido”</text>
+    </svg>
+    <p data-asset="note" style="margin-top:28px; font-size:16.5px; color:var(--ufpel-muted); max-width:1000px;">
+      Cadência prática: um passe adversarial por sprint ou por PR grande. Cobertura mede o que foi <b style="color:var(--ufpel-ink);">executado</b>; só um adversário mede o que foi de fato <b style="color:var(--ufpel-ink);">verificado</b>.
+    </p>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>11</b> / 30</span>
+  </div>
+</section>

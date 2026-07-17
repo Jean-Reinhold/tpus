@@ -1,0 +1,70 @@
+<!-- ======================================================================
+     SLIDE 13 - O MOCK RASO MENTE (diagram: teste vs produção)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Testes de integração</div>
+    <h2 class="heading" data-asset="heading">O mock raso <span class="em">mente</span></h2>
+    <div class="body">
+    <svg class="diagram" data-asset="diagram" width="1136" height="400" viewBox="0 0 1136 400">
+      <defs>
+        <marker id="arrow-ink13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#111111"/>
+        </marker>
+      </defs>
+      <!-- divisor central -->
+      <line x1="568" y1="16" x2="568" y2="384" stroke="#E7E9F4" stroke-width="2"/>
+      <!-- ESQUERDA: no CI, com mocks -->
+      <text x="270" y="34" text-anchor="middle" style="font-size:16px;">No CI, com mocks: tudo verde</text>
+      <rect class="d-node" x="30" y="170" width="170" height="76" rx="14"/>
+      <text x="115" y="202" text-anchor="middle">Serviço A</text>
+      <text class="d-label" x="115" y="224" text-anchor="middle">o código em teste</text>
+
+      <rect x="310" y="64" width="220" height="64" rx="14" fill="#fff" stroke="#54677D" stroke-width="1.5" stroke-dasharray="7 5"/>
+      <text x="420" y="91" text-anchor="middle">mock do Serviço B</text>
+      <text class="d-label" x="420" y="112" text-anchor="middle" style="fill:#0A9B76">sempre responde 200 ✓</text>
+
+      <rect x="310" y="176" width="220" height="64" rx="14" fill="#fff" stroke="#54677D" stroke-width="1.5" stroke-dasharray="7 5"/>
+      <text x="420" y="203" text-anchor="middle">mock da fila</text>
+      <text class="d-label" x="420" y="224" text-anchor="middle" style="fill:#0A9B76">entrega em ordem ✓</text>
+
+      <rect x="310" y="288" width="220" height="64" rx="14" fill="#fff" stroke="#54677D" stroke-width="1.5" stroke-dasharray="7 5"/>
+      <text x="420" y="315" text-anchor="middle">mock do banco</text>
+      <text class="d-label" x="420" y="336" text-anchor="middle" style="fill:#0A9B76">aceita qualquer insert ✓</text>
+
+      <path class="d-edge-dash" d="M200 190 L 302 106" marker-end="url(#arrow-ink13)"/>
+      <path class="d-edge-dash" d="M200 208 L 302 208" marker-end="url(#arrow-ink13)"/>
+      <path class="d-edge-dash" d="M200 226 L 302 310" marker-end="url(#arrow-ink13)"/>
+
+      <!-- DIREITA: em produção -->
+      <text x="852" y="34" text-anchor="middle" style="font-size:16px;">Em produção: o contrato real</text>
+      <rect class="d-node" x="612" y="170" width="170" height="76" rx="14"/>
+      <text x="697" y="202" text-anchor="middle">Serviço A</text>
+      <text class="d-label" x="697" y="224" text-anchor="middle">o mesmo código</text>
+
+      <rect class="d-node-black" x="892" y="64" width="230" height="64" rx="14"/>
+      <text class="on-dark" x="1007" y="91" text-anchor="middle">Serviço B v2</text>
+      <text class="d-label" x="1007" y="146" text-anchor="middle" style="fill:#D64545">contrato mudou ✗</text>
+
+      <rect class="d-node-black" x="892" y="176" width="230" height="64" rx="14"/>
+      <text class="on-dark" x="1007" y="203" text-anchor="middle">Fila real (Kafka)</text>
+      <text class="d-label" x="1007" y="258" text-anchor="middle" style="fill:#D64545">reordena e repete ✗</text>
+
+      <rect class="d-node-black" x="892" y="288" width="230" height="64" rx="14"/>
+      <text class="on-dark" x="1007" y="315" text-anchor="middle">Postgres real</text>
+      <text class="d-label" x="1007" y="370" text-anchor="middle" style="fill:#D64545">viola constraint ✗</text>
+
+      <path class="d-edge" d="M782 190 L 884 106" marker-end="url(#arrow-ink13)"/>
+      <path class="d-edge" d="M782 208 L 884 208" marker-end="url(#arrow-ink13)"/>
+      <path class="d-edge" d="M782 226 L 884 310" marker-end="url(#arrow-ink13)"/>
+
+      <text class="d-label" x="568" y="392" text-anchor="middle">O mock repete o que você acredita sobre a dependência; e microserviços + nuvem multiplicam as dependências em que acreditar.</text>
+    </svg>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>13</b> / 30</span>
+  </div>
+</section>

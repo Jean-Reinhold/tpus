@@ -1,0 +1,50 @@
+<!-- ======================================================================
+     SLIDE 4 - PIRÂMIDE DE TESTES (diagram)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Por que automatizar</div>
+    <h2 class="heading" data-asset="heading">Regressão barata: a <span class="em">pirâmide de testes</span></h2>
+    <div class="body">
+    <svg class="diagram" data-asset="diagram" width="1136" height="430" viewBox="0 0 1136 430">
+      <defs>
+        <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#00408F"/>
+        </marker>
+        <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#111111"/>
+        </marker>
+      </defs>
+      <!-- topo: E2E -->
+      <polygon points="513,20 623,20 693,120 443,120" fill="#002A5C" stroke="#111" stroke-width="1.5"/>
+      <text class="on-dark" x="568" y="68" text-anchor="middle">E2E / UI</text>
+      <text class="d-label" x="568" y="92" text-anchor="middle" style="fill:#B5DCF1">poucos · minutos · Playwright</text>
+      <!-- meio: integração -->
+      <polygon points="437,132 699,132 769,232 367,232" fill="#fff" stroke="#111" stroke-width="1.5"/>
+      <text x="568" y="180" text-anchor="middle">Integração</text>
+      <text class="d-label" x="568" y="204" text-anchor="middle">dezenas · segundos · Testcontainers</text>
+      <!-- base: unitários -->
+      <polygon points="361,244 775,244 845,344 291,344" fill="#B5DCF1" stroke="#111" stroke-width="1.5"/>
+      <text x="568" y="292" text-anchor="middle">Testes unitários</text>
+      <text class="d-label" x="568" y="316" text-anchor="middle">milhares · milissegundos · JUnit 5 + Mockito</text>
+      <!-- seta esquerda: sobe = mais caro -->
+      <line x1="150" y1="330" x2="150" y2="60" stroke="#111" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+      <text class="d-label" x="150" y="352" text-anchor="middle">subindo na pirâmide:</text>
+      <text class="d-label" x="150" y="372" text-anchor="middle">mais caros, mais lentos,</text>
+      <text class="d-label" x="150" y="392" text-anchor="middle">mais frágeis</text>
+      <!-- seta direita: desce = mais numerosos -->
+      <line x1="990" y1="60" x2="990" y2="330" stroke="#00408F" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+      <text class="d-label" x="990" y="352" text-anchor="middle" style="fill:#00408F">descendo na pirâmide:</text>
+      <text class="d-label" x="990" y="372" text-anchor="middle" style="fill:#00408F">mais rápidos, mais isolados,</text>
+      <text class="d-label" x="990" y="392" text-anchor="middle" style="fill:#00408F">feedback em segundos</text>
+      <!-- atribuição -->
+      <text class="d-label" x="568" y="416" text-anchor="middle">Pirâmide de testes (Cohn, 2009; Vocke, 2018): o teste roda mil vezes, a revisão manual só uma. Com IA, cada camada ganha seu gerador de casos.</text>
+    </svg>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>4</b> / 30</span>
+  </div>
+</section>

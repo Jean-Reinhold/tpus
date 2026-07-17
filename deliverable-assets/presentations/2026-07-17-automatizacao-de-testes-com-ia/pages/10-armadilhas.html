@@ -1,0 +1,38 @@
+<!-- ======================================================================
+     SLIDE 10 - ARMADILHAS (bad test code + bullets)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Armadilhas</div>
+    <h2 class="heading" data-asset="heading">O teste que <span class="em">mente para você</span></h2>
+    <div class="body">
+    <div class="cols wide-left">
+      <div>
+        <div class="code" data-asset="code">
+<span class="tok-k">@Test</span>
+<span class="tok-k">void</span> testProcessar() {
+    <span class="tok-k">var</span> resultado = servico.processar(pedido);
+
+    assertNotNull(resultado);       <span class="tok-c">// passa com QUALQUER retorno</span>
+    verify(repo).salvar(any());     <span class="tok-c">// amarra à implementação</span>
+}
+</div>
+        <div class="callout danger" data-asset="callout" style="margin-top:26px;">
+          <b>Lei de Goodhart:</b> quando a cobertura vira meta, deixa de medir qualidade. 100% de cobertura com asserts fracos protege 0% do comportamento.
+        </div>
+      </div>
+      <ul class="bullets" data-asset="bullets" style="font-size:17px;">
+        <li>IA otimiza “teste que passa”, não “teste que protege”, e é ótima em produzir verde ilusório.</li>
+        <li>Assert fraco aceita qualquer resultado; o bug passa junto.</li>
+        <li>Teste que espelha a implementação quebra no refactor e sobrevive ao bug, o inverso do desejado.</li>
+        <li>Volume gerado sem revisão vira <b>manutenção</b>: mil testes ruins custam mais do que nenhum.</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>10</b> / 30</span>
+  </div>
+</section>

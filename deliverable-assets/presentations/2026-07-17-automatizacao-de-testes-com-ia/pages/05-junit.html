@@ -1,0 +1,35 @@
+<!-- ======================================================================
+     SLIDE 5 - TESTES UNITÁRIOS / JUNIT (code + bullets)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Testes unitários</div>
+    <h2 class="heading" data-asset="heading">JUnit: o contrato <span class="em">executável</span> da unidade</h2>
+    <div class="body">
+    <div class="cols wide-left">
+      <div class="code" data-asset="code">
+<span class="tok-c">// Arrange, Act, Assert</span>
+<span class="tok-k">@Test</span>
+<span class="tok-k">void</span> descontoNaoDeixaPrecoNegativo() {
+    <span class="tok-k">var</span> pedido = <span class="tok-k">new</span> Pedido(<span class="tok-s">100.00</span>);
+
+    pedido.aplicarDesconto(<span class="tok-s">150.00</span>);
+
+    assertEquals(<span class="tok-s">0.00</span>, pedido.total(), <span class="tok-s">0.001</span>);
+}
+</div>
+      <ul class="bullets" data-asset="bullets" style="font-size:17px;">
+        <li><b>F.I.R.S.T</b>: rápido, isolado, repetível, autoverificável e escrito a tempo.</li>
+        <li>Um bom teste documenta a <b>intenção</b>: o nome já conta a regra de negócio.</li>
+        <li>Milhares rodam por build, em milissegundos, sem rede nem banco.</li>
+        <li>Um agente <b>gera</b> este teste a partir do diff ou do bug report; o dev revisa a intenção, não o boilerplate.</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>5</b> / 30</span>
+  </div>
+</section>

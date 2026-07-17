@@ -1,0 +1,30 @@
+<!-- ======================================================================
+     SLIDE 22 - GARANTIAS ANTES IMPOSSÍVEIS (table)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Novas garantias</div>
+    <h2 class="heading" data-asset="heading">O que era <span class="em">impossível testar</span></h2>
+    <div class="body">
+    <table class="table" data-asset="table" style="font-size:15px;">
+      <thead>
+        <tr><th style="width:26%;">O que era impossível</th><th style="width:34%;">Por quê</th><th>Como o agente garante</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>Saída aberta</b> (LLM, busca, recomendação)</td><td>Sem oráculo computável: não existe uma única “resposta esperada”</td><td>Agente-juiz avalia a saída contra rubricas e critérios semânticos</td></tr>
+        <tr><td><b>O que o usuário vê</b></td><td>Pixel-diff é frágil; o DOM “passa” com a tela quebrada</td><td>Visão computacional julga o render real: layout, hierarquia, legibilidade</td></tr>
+        <tr><td><b>O caminho não previsto</b></td><td>Roteiros gravados cobrem apenas o que foi imaginado</td><td>Exploração autônoma com julgamento, com relato do que estranhou</td></tr>
+        <tr><td><b>Requisito em linguagem natural</b></td><td>Automatizar exigia formalizar a spec antes</td><td>O texto do requisito vira critério executável, direto do backlog</td></tr>
+      </tbody>
+    </table>
+    <p data-asset="note" style="margin-top:30px; font-size:16.5px; color:var(--ufpel-muted); max-width:1020px;">
+      Na literatura, isso é o <b style="color:var(--ufpel-ink);">problema do oráculo</b> (Barr et al., 2015): sem uma saída esperada computável, não havia como automatizar. Agentes transformam o oráculo em <b style="color:var(--ufpel-ink);">julgamento verificado</b>, e categorias inteiras de propriedades passam a ser testáveis.
+    </p>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>22</b> / 30</span>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+<!-- ======================================================================
+     SLIDE 19 - TESTES DE MUTAÇÃO (diagram + note)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Testes de mutação</div>
+    <h2 class="heading" data-asset="heading">Sabote o código para <span class="em">medir a suíte</span></h2>
+    <div class="body">
+    <svg class="diagram" data-asset="diagram" width="1136" height="300" viewBox="0 0 1136 300">
+      <defs>
+        <marker id="arrow-ink19" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#111111"/>
+        </marker>
+        <marker id="arrow-blue19" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#00408F"/>
+        </marker>
+      </defs>
+      <rect class="d-node" x="20" y="100" width="190" height="90" rx="14"/>
+      <text x="115" y="138" text-anchor="middle">Código</text>
+      <text class="d-label" x="115" y="160" text-anchor="middle">versão original</text>
+
+      <rect class="d-node-tile" x="300" y="88" width="260" height="114" rx="14"/>
+      <text x="430" y="122" text-anchor="middle">Mutantes</text>
+      <text class="d-label" x="430" y="146" text-anchor="middle">&gt; vira &gt;= · limite +1 some</text>
+      <text class="d-label" x="430" y="166" text-anchor="middle">null check invertido</text>
+
+      <rect class="d-node" x="650" y="100" width="200" height="90" rx="14"/>
+      <text x="750" y="138" text-anchor="middle">Suíte de testes</text>
+      <text class="d-label" x="750" y="160" text-anchor="middle">roda contra cada mutante</text>
+
+      <line class="d-edge" x1="210" y1="145" x2="292" y2="145" marker-end="url(#arrow-ink19)"/>
+      <text class="d-label" x="251" y="132" text-anchor="middle">IA gera</text>
+      <line class="d-edge" x1="560" y1="145" x2="642" y2="145" marker-end="url(#arrow-ink19)"/>
+
+      <path class="d-edge" d="M850 122 L 940 70" marker-end="url(#arrow-blue19)" style="stroke:#00408F"/>
+      <text x="1035" y="56" text-anchor="middle" style="font-size:15px; fill:#0A9B76;">mutante morto ✓</text>
+      <text class="d-label" x="1035" y="78" text-anchor="middle">a suíte percebeu o sabote</text>
+
+      <path class="d-edge-dash" d="M850 168 L 940 220" marker-end="url(#arrow-ink19)"/>
+      <text x="1035" y="236" text-anchor="middle" style="font-size:15px; fill:#D64545;">mutante vivo ✗</text>
+      <text class="d-label" x="1035" y="258" text-anchor="middle">teste fraco encontrado</text>
+    </svg>
+    <p data-asset="note" style="margin-top:26px; font-size:16.5px; color:var(--ufpel-muted); max-width:1020px;">
+      Ferramentas: <b style="color:var(--ufpel-ink);">PIT (pitest)</b> automatiza os operadores clássicos em Java. Com IA, os mutantes ficam <b style="color:var(--ufpel-ink);">semânticos</b>: os edge cases que iam parar debaixo do mesmo guarda-chuva viram mutações distintas, e cada sobrevivente volta como proposta do teste que o mata.
+    </p>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>20</b> / 30</span>
+  </div>
+</section>

@@ -1,0 +1,56 @@
+<!-- ======================================================================
+     SLIDE 25 - NOSSO HARNESS (screenshot + timeline do loop + chips)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Estudo de caso</div>
+    <h2 class="heading" data-asset="heading">Nosso harness: o agente <span class="em">enxerga o slide</span></h2>
+    <div class="body">
+    <div class="cols wide-left" style="align-items:center;">
+      <div>
+        <img data-asset="screenshot" data-profile="opaque" src="assets/tpu-debug-bboxes.png" alt="Render de depuração com bounding boxes"
+             style="width:100%; border-radius:12px; border:1px solid #E7E9F4; box-shadow:0 10px 30px rgba(0,42,92,.14);">
+        <p data-asset="caption" style="margin-top:12px; font-size:13.5px; color:var(--ufpel-muted);">
+          Render de depuração real (deck de TPUs, AOC): grade de coordenadas + caixas rotuladas, como <span style="font-family:monospace;">heading 72,88 1136×45</span>, que o agente lê para corrigir com números.
+        </p>
+        <div data-asset="chips" style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="chip">2 renders por slide</span>
+          <span class="chip">layout.json: 0 overlaps</span>
+          <span class="chip">loop até passar</span>
+        </div>
+      </div>
+      <div class="timeline" data-asset="timeline" style="font-size:14px;">
+        <div class="t-item">
+          <div class="t-date">Etapa 1 · Compor</div>
+          <div class="t-text">Fragmentos HTML, um por slide, cada bloco com <span style="font-family:monospace;">data-asset</span>.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">Etapa 2 · Renderizar --debug</div>
+          <div class="t-text">Playwright gera o PNG limpo e o PNG anotado com bounding boxes.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">Etapa 3 · Checagem de máquina</div>
+          <div class="t-text"><span style="font-family:monospace;">layout.json</span> acusa overlap e overflow: defeito vira número.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">Etapa 4 · Checagem de visão</div>
+          <div class="t-text">O agente lê as duas imagens: estética no limpo, geometria no anotado.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">Etapa 5 · Corrigir e repetir</div>
+          <div class="t-text">Deltas numéricos (“mover 24px”), não achismo, até zerar os problemas.</div>
+        </div>
+        <div class="t-item" style="padding-bottom:0;">
+          <div class="t-date">Etapa 6 · Só então o PDF</div>
+          <div class="t-text">Montado dos mesmos PNGs validados: o que passou é o que você vê.</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>25</b> / 30</span>
+  </div>
+</section>

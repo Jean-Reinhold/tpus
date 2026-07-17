@@ -1,0 +1,28 @@
+<!-- ======================================================================
+     SLIDE 15 - DRIVER E DESIGN TESTÁVEL (bullets + insight)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Design testável</div>
+    <h2 class="heading" data-asset="heading">O driver de teste é <span class="em">parte do sistema</span></h2>
+    <div class="body">
+    <div class="cols wide-left">
+      <ul class="bullets" data-asset="bullets">
+        <li><b>Ports &amp; adapters</b> (arquitetura hexagonal): o domínio conversa com interfaces; banco, fila e HTTP ficam nos adaptadores da borda.</li>
+        <li>Um bom driver exercita o sistema <b>pela mesma porta</b> que a produção usa, não por atalhos internos.</li>
+        <li>Mockar “no nível simples”, função a função, congela a implementação e deixa o contrato de fora.</li>
+        <li>Agentes de IA escrevem drivers e adapters muito bem: trabalho mecânico, contrato claro, desde que a arquitetura dê as portas.</li>
+      </ul>
+      <div class="card-insight" data-asset="insight">
+        <div class="c-kicker">Princípio</div>
+        Testabilidade não se adiciona depois: é uma propriedade da <span class="em" style="font-weight:600;">arquitetura</span>. O harness de testes é software de produção; trate-o assim.
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>16</b> / 30</span>
+  </div>
+</section>

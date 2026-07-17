@@ -1,7 +1,7 @@
-# tpus — apresentação UFPel sobre TPUs
+# college-presentations — apresentações UFPel
 
-Repositório de uma apresentação sobre TPUs (Tensor Processing Units) com a
-identidade visual oficial da UFPel.
+Repositório de apresentações de disciplinas da UFPel (TPUs/AOC, testes com
+IA/ES1, …) com a identidade visual oficial da universidade.
 
 - Para gerar/editar slides use a skill `/ppt` (`.claude/skills/ppt/SKILL.md`),
   que delega para `.agents/skills/document-generation/SKILL.md` — siga o

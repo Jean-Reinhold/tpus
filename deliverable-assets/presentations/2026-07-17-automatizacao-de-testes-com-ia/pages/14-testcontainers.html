@@ -1,0 +1,41 @@
+<!-- ======================================================================
+     SLIDE 14 - TESTCONTAINERS (code + bullets)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Testcontainers</div>
+    <h2 class="heading" data-asset="heading">Suba a infraestrutura <span class="em">de verdade</span> no teste</h2>
+    <div class="body">
+    <div class="cols wide-left">
+      <div>
+        <div class="code" data-asset="code">
+<span class="tok-k">@Testcontainers</span>
+<span class="tok-k">class</span> PedidoRepositorioIT {
+
+    <span class="tok-k">@Container</span>
+    <span class="tok-k">static</span> PostgreSQLContainer&lt;?&gt; pg =
+        <span class="tok-k">new</span> PostgreSQLContainer&lt;&gt;(<span class="tok-s">"postgres:16"</span>);
+
+    <span class="tok-k">@Test</span>
+    <span class="tok-k">void</span> persisteERecuperaPedido() { <span class="tok-c">/* driver JDBC real */</span> }
+}
+</div>
+        <div class="callout" data-asset="callout" style="margin-top:26px;">
+          <b>Regra prática:</b> mocke o que é <b>seu</b> e já tem teste unitário; containerize o que é <b>dos outros</b>: banco, fila, broker, storage.
+        </div>
+      </div>
+      <ul class="bullets" data-asset="bullets" style="font-size:17px;">
+        <li>Postgres, Kafka e Redis <b>reais</b>, em containers descartáveis, um por suíte de teste.</li>
+        <li>O teste fala com o driver e o dialeto de verdade: constraints, transações e tipos incluídos.</li>
+        <li>Mesma versão do banco de produção, sem instalar nada na máquina.</li>
+        <li>Mais caro que mock: use onde o <b>contrato</b> importa, seguindo a pirâmide.</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Automatização de testes com IA</span>
+    <span class="f-page"><b>14</b> / 30</span>
+  </div>
+</section>
