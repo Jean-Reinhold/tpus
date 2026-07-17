@@ -1,7 +1,7 @@
 # Automatização de Testes de Software (dá para usar IA?)
 
 Seminário de Engenharia de Software 1: UFPel, julho de 2026.
-Apresentadores: Pedro Ivo · Jean Paul Reinhold · Jonathas.
+Apresentadores: Jean Paul Reinhold · Pedro Ivo · Jonathas.
 
 Deliverable: `deliverable-assets/presentations/2026-07-17-automatizacao-de-testes-com-ia/`
 (30 slides, 16:9, identidade UFPel: PDF em `out/deliverable.pdf`).
