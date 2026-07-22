@@ -1,0 +1,48 @@
+<!-- ======================================================================
+     SLIDE 14 — DESEMPENHO (dark, chart pair) — o momento forte
+     ====================================================================== -->
+<section class="slide dark" data-theme="dark">
+  <div class="content">
+    <div class="kicker">Resultados</div>
+    <h2 class="heading" data-asset="heading" style="color:#fff;">O retorno da <span class="em" style="color:#B5DCF1;">especialização</span></h2>
+    <div class="body">
+    <div class="cols">
+      <figure class="chart" data-asset="chart-perf-watt">
+        <canvas data-chart width="520" height="330"></canvas>
+        <script type="application/json">
+        {
+          "type": "bar",
+          "data": {
+            "labels": ["CPU (Haswell)", "GPU (K80)", "TPU v1"],
+            "datasets": [
+              { "label": "Desempenho/Watt (CPU = 1)", "data": [1, 2.9, 83] }
+            ]
+          }
+        }
+        </script>
+        <figcaption style="color:rgba(255,255,255,.6);">Desempenho por watt em inferência, relativo à CPU: 29× a GPU e 83× a CPU (Jouppi et al., 2017).</figcaption>
+      </figure>
+      <figure class="chart" data-asset="chart-geracoes">
+        <canvas data-chart width="520" height="330"></canvas>
+        <script type="application/json">
+        {
+          "type": "bar",
+          "data": {
+            "labels": ["v3 · 2018", "v4 · 2021", "v5p · 2023", "v6e · 2024"],
+            "datasets": [
+              { "label": "TFLOPs bf16 por chip", "data": [123, 275, 459, 918] }
+            ]
+          }
+        }
+        </script>
+        <figcaption style="color:rgba(255,255,255,.6);">Pico de computação por chip (bf16), da v3 à v6e “Trillium” (JAX Scaling Book).</figcaption>
+      </figure>
+    </div>
+    </div>
+  </div>
+  <div class="footer" style="color:rgba(255,255,255,.55);">
+    <img src="assets/ufpel-marca-white.svg" alt="">
+    <span class="f-title">Arquitetura de TPUs</span>
+    <span class="f-page"><b>18</b> / 21</span>
+  </div>
+</section>
