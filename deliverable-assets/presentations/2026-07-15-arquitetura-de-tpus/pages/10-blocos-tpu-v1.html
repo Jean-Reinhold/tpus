@@ -1,0 +1,72 @@
+<!-- ======================================================================
+     SLIDE 7 — DIAGRAMA DE BLOCOS DA TPU v1
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Arquitetura</div>
+    <h2 class="heading" data-asset="heading">A TPU v1 em <span class="em">blocos</span></h2>
+    <div class="body">
+    <svg class="diagram" data-asset="diagram" width="1136" height="400" viewBox="0 0 1136 400">
+      <defs>
+        <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#00408F"/>
+        </marker>
+        <marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#111111"/>
+        </marker>
+      </defs>
+
+      <!-- pesos: DRAM -> FIFO -> MXU -->
+      <rect class="d-node-tile" x="250" y="12" width="210" height="80" rx="14"/>
+      <text x="355" y="44" text-anchor="middle">DRAM DDR3</text>
+      <text class="d-label" x="355" y="66" text-anchor="middle">8 GB · armazena os pesos</text>
+
+      <rect class="d-node" x="565" y="20" width="200" height="64" rx="14"/>
+      <text x="665" y="58" text-anchor="middle">FIFO de pesos</text>
+
+      <line class="d-edge" x1="460" y1="52" x2="557" y2="52" marker-end="url(#arrow-ink)"/>
+      <line class="d-edge" x1="665" y1="84" x2="665" y2="132" marker-end="url(#arrow-ink)"/>
+      <text class="d-label" x="680" y="114">pesos</text>
+
+      <!-- caminho das ativações -->
+      <rect class="d-node-tile" x="20" y="170" width="160" height="84" rx="14"/>
+      <text x="100" y="204" text-anchor="middle">Host / PCIe</text>
+      <text class="d-label" x="100" y="226" text-anchor="middle">Gen3 ×16 · 12,5 GB/s</text>
+
+      <rect class="d-node" x="250" y="160" width="210" height="104" rx="14"/>
+      <text x="355" y="202" text-anchor="middle">Unified Buffer</text>
+      <text class="d-label" x="355" y="224" text-anchor="middle">24 MB de SRAM (ativações)</text>
+
+      <rect class="d-node-black" x="540" y="140" width="250" height="144" rx="16"/>
+      <text class="on-dark" x="665" y="192" text-anchor="middle">Matrix Multiply Unit</text>
+      <text class="d-label" x="665" y="216" text-anchor="middle" fill="#B5DCF1">256 × 256 = 65.536 MACs</text>
+      <text class="d-label" x="665" y="238" text-anchor="middle" fill="#B5DCF1">92 TeraOps/s (INT8)</text>
+
+      <rect class="d-node" x="880" y="80" width="220" height="84" rx="14"/>
+      <text x="990" y="114" text-anchor="middle">Acumuladores</text>
+      <text class="d-label" x="990" y="136" text-anchor="middle">4 MiB · somas em 32 bits</text>
+
+      <rect class="d-node-tile" x="880" y="240" width="220" height="84" rx="14"/>
+      <text x="990" y="274" text-anchor="middle">Ativação</text>
+      <text class="d-label" x="990" y="296" text-anchor="middle">ReLU · sigmoide · tanh</text>
+
+      <!-- arestas -->
+      <line class="d-edge" x1="180" y1="212" x2="242" y2="212" marker-end="url(#arrow-ink)"/>
+      <line class="d-edge" x1="460" y1="212" x2="532" y2="212" stroke="#00408F" marker-end="url(#arrow-blue)"/>
+      <text class="d-label" x="463" y="198" fill="#00408F">ativações</text>
+      <path class="d-edge" d="M790 190 L872 130" marker-end="url(#arrow-ink)"/>
+      <line class="d-edge" x1="990" y1="164" x2="990" y2="232" marker-end="url(#arrow-ink)"/>
+      <path class="d-edge" d="M880 296 C 700 372, 470 344, 362 272" stroke="#00408F" fill="none" marker-end="url(#arrow-blue)"/>
+      <text class="d-label" x="560" y="372" fill="#00408F">resultados voltam ao buffer</text>
+
+      <!-- fonte -->
+      <text class="d-label" x="20" y="392">Caminho dos dados na TPU v1 (inferência, 2015). Fonte: Jouppi et al., 2017 · Google Cloud Blog.</text>
+    </svg>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Arquitetura de TPUs</span>
+    <span class="f-page"><b>10</b> / 21</span>
+  </div>
+</section>

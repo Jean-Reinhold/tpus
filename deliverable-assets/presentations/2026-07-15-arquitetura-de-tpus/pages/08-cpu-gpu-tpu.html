@@ -1,0 +1,32 @@
+<!-- ======================================================================
+     SLIDE 5 — CPU vs GPU vs TPU (comparison table)
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Comparação</div>
+    <h2 class="heading" data-asset="heading">CPU, GPU e TPU <span class="em">lado a lado</span></h2>
+    <div class="body">
+    <table class="table" data-asset="table">
+      <thead>
+        <tr><th>Característica</th><th>CPU</th><th>GPU</th><th>TPU (v1)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Propósito</td><td>Uso geral</td><td>Paralelismo massivo (gráficos, HPC)</td><td>Somente redes neurais</td></tr>
+        <tr><td>Unidades de cálculo</td><td>Dezenas de ALUs</td><td>Milhares de ALUs</td><td>65.536 MACs de 8 bits</td></tr>
+        <tr><td>Modelo de execução</td><td>Sequencial, fora de ordem</td><td>Milhares de threads (SIMT)</td><td>Array sistólico determinístico</td></tr>
+        <tr><td>Lógica de controle</td><td>~30–40% do die</td><td>~20–30% do die</td><td>&lt; 2% do die</td></tr>
+        <tr><td>Latência</td><td>Variável (caches, especulação)</td><td>Variável</td><td>Determinística</td></tr>
+        <tr><td>Flynn</td><td>SISD (1 núcleo) · MIMD (multicore)</td><td>SIMD (variante SIMT)</td><td>SIMD com dataflow sistólico</td></tr>
+      </tbody>
+    </table>
+    <div class="callout" data-asset="callout" style="margin-top:32px;">
+      <b>Em resumo:</b> a CPU quer terminar uma tarefa o quanto antes; a GPU quer fazer milhares ao mesmo tempo; a TPU quer fazer o máximo de contas de matriz por watt.
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Arquitetura de TPUs</span>
+    <span class="f-page"><b>8</b> / 21</span>
+  </div>
+</section>

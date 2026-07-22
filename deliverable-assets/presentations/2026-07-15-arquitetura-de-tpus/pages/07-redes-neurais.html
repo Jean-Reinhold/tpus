@@ -1,0 +1,65 @@
+<!-- ======================================================================
+     SLIDE 5 — O QUE UMA REDE NEURAL CALCULA
+     ====================================================================== -->
+<section class="slide">
+  <div class="content">
+    <div class="kicker">Fundamentos</div>
+    <h2 class="heading" data-asset="heading">Antes do chip: o que uma rede neural <span class="em">calcula</span></h2>
+    <div class="body">
+    <div class="cols wide-left">
+      <svg class="diagram" data-asset="diagram" width="620" height="420" viewBox="0 0 620 420">
+        <text x="310" y="28" text-anchor="middle" style="font-weight:600;">y = f(W · x + b)</text>
+        <text class="d-label" x="210" y="54" text-anchor="middle">matriz W₁</text>
+        <text class="d-label" x="410" y="54" text-anchor="middle">matriz W₂</text>
+
+        <!-- conexões camada 1 -> 2 -->
+        <g stroke="#54677D" stroke-opacity=".35" stroke-width="1.2">
+          <line x1="130" y1="110" x2="290" y2="80"/><line x1="130" y1="110" x2="290" y2="260"/><line x1="130" y1="110" x2="290" y2="350"/>
+          <line x1="130" y1="210" x2="290" y2="80"/><line x1="130" y1="210" x2="290" y2="260"/><line x1="130" y1="210" x2="290" y2="350"/>
+          <line x1="130" y1="310" x2="290" y2="80"/><line x1="130" y1="310" x2="290" y2="260"/><line x1="130" y1="310" x2="290" y2="350"/>
+        </g>
+        <!-- em destaque: os pesos que chegam a um neurônio = uma linha de W₁ -->
+        <g stroke="#00408F" stroke-width="2.2">
+          <line x1="130" y1="110" x2="290" y2="170"/>
+          <line x1="130" y1="210" x2="290" y2="170"/>
+          <line x1="130" y1="310" x2="290" y2="170"/>
+        </g>
+
+        <!-- conexões camada 2 -> 3 -->
+        <g stroke="#54677D" stroke-opacity=".35" stroke-width="1.2">
+          <line x1="330" y1="80" x2="490" y2="150"/><line x1="330" y1="80" x2="490" y2="270"/>
+          <line x1="330" y1="170" x2="490" y2="150"/><line x1="330" y1="170" x2="490" y2="270"/>
+          <line x1="330" y1="260" x2="490" y2="150"/><line x1="330" y1="260" x2="490" y2="270"/>
+          <line x1="330" y1="350" x2="490" y2="150"/><line x1="330" y1="350" x2="490" y2="270"/>
+        </g>
+
+        <!-- neurônios -->
+        <g fill="#ffffff" stroke="#14202E" stroke-width="1.5">
+          <circle cx="110" cy="110" r="20"/><circle cx="110" cy="210" r="20"/><circle cx="110" cy="310" r="20"/>
+        </g>
+        <g fill="#B5DCF1" stroke="#14202E" stroke-width="1.5">
+          <circle cx="310" cy="80" r="20"/><circle cx="310" cy="170" r="20"/><circle cx="310" cy="260" r="20"/><circle cx="310" cy="350" r="20"/>
+        </g>
+        <g fill="#00408F" stroke="#14202E" stroke-width="1.5">
+          <circle cx="510" cy="150" r="20"/><circle cx="510" cy="270" r="20"/>
+        </g>
+
+        <text class="d-label" x="110" y="398" text-anchor="middle">entrada x</text>
+        <text class="d-label" x="310" y="398" text-anchor="middle">camada oculta</text>
+        <text class="d-label" x="510" y="398" text-anchor="middle">saída y</text>
+      </svg>
+      <ul class="bullets" data-asset="bullets" style="font-size:17px;">
+        <li>Cada camada faz sempre a mesma conta: multiplica a entrada pela matriz de pesos <b>W</b>, soma um viés <b>b</b> e aplica uma função simples, como a ReLU.</li>
+        <li>Cada seta do desenho carrega um peso. As setas azuis, por exemplo, formam uma linha inteira de W₁.</li>
+        <li>Os pesos são ajustados no treino. Na inferência, quando a rede responde, eles ficam fixos.</li>
+        <li>Redes de verdade empilham dezenas de camadas e repetem essa conta bilhões de vezes. A maior parte do tempo é multiplicação de matrizes.</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  <div class="footer">
+    <img src="assets/ufpel-marca.svg" alt="">
+    <span class="f-title">Arquitetura de TPUs</span>
+    <span class="f-page"><b>7</b> / 21</span>
+  </div>
+</section>
